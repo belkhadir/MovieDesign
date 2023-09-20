@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		49C8F2AA2ABB364A00680ABB /* MovieiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C8F2A12ABB364A00680ABB /* MovieiOS.framework */; };
+		49C8F2C62ABB3E1300680ABB /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 49C8F2C52ABB3E1300680ABB /* Cartfile */; };
+		49C8F2C82ABB3E7800680ABB /* MovieiOS.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 49C8F2C72ABB3E7800680ABB /* MovieiOS.xctestplan */; };
+		49C8F2CA2ABB3EFA00680ABB /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 49C8F2C92ABB3EFA00680ABB /* Cartfile.resolved */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,7 +26,9 @@
 /* Begin PBXFileReference section */
 		49C8F2A12ABB364A00680ABB /* MovieiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MovieiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C8F2A92ABB364A00680ABB /* MovieiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		49C8F2B92ABB366D00680ABB /* MovieiOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MovieiOS.xctestplan; sourceTree = SOURCE_ROOT; };
+		49C8F2C52ABB3E1300680ABB /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		49C8F2C72ABB3E7800680ABB /* MovieiOS.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MovieiOS.xctestplan; sourceTree = "<group>"; };
+		49C8F2C92ABB3EFA00680ABB /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +53,8 @@
 		49C8F2972ABB364A00680ABB = {
 			isa = PBXGroup;
 			children = (
+				49C8F2C52ABB3E1300680ABB /* Cartfile */,
+				49C8F2C92ABB3EFA00680ABB /* Cartfile.resolved */,
 				49C8F2C02ABB3D9100680ABB /* MovieiOS */,
 				49C8F2AD2ABB364A00680ABB /* MovieiOSTests */,
 				49C8F2A22ABB364A00680ABB /* Products */,
@@ -66,7 +73,7 @@
 		49C8F2AD2ABB364A00680ABB /* MovieiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				49C8F2B92ABB366D00680ABB /* MovieiOS.xctestplan */,
+				49C8F2C72ABB3E7800680ABB /* MovieiOS.xctestplan */,
 			);
 			path = MovieiOSTests;
 			sourceTree = "<group>";
@@ -171,6 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C8F2C62ABB3E1300680ABB /* Cartfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +186,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C8F2C82ABB3E7800680ABB /* MovieiOS.xctestplan in Resources */,
+				49C8F2CA2ABB3EFA00680ABB /* Cartfile.resolved in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
