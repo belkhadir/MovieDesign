@@ -23,7 +23,7 @@
 /* Begin PBXFileReference section */
 		49C8F2A12ABB364A00680ABB /* MovieiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MovieiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C8F2A92ABB364A00680ABB /* MovieiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		49C8F2B92ABB366D00680ABB /* MovieiOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = MovieiOS.xctestplan; sourceTree = SOURCE_ROOT; };
+		49C8F2B92ABB366D00680ABB /* MovieiOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MovieiOS.xctestplan; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +48,7 @@
 		49C8F2972ABB364A00680ABB = {
 			isa = PBXGroup;
 			children = (
-				49C8F2A32ABB364A00680ABB /* MovieiOS */,
+				49C8F2C02ABB3D9100680ABB /* MovieiOS */,
 				49C8F2AD2ABB364A00680ABB /* MovieiOSTests */,
 				49C8F2A22ABB364A00680ABB /* Products */,
 			);
@@ -63,19 +63,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		49C8F2A32ABB364A00680ABB /* MovieiOS */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MovieiOS;
-			sourceTree = "<group>";
-		};
 		49C8F2AD2ABB364A00680ABB /* MovieiOSTests */ = {
 			isa = PBXGroup;
 			children = (
 				49C8F2B92ABB366D00680ABB /* MovieiOS.xctestplan */,
 			);
 			path = MovieiOSTests;
+			sourceTree = "<group>";
+		};
+		49C8F2C02ABB3D9100680ABB /* MovieiOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MovieiOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +139,11 @@
 				TargetAttributes = {
 					49C8F2A02ABB364A00680ABB = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 					49C8F2A82ABB364A00680ABB = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -330,6 +332,7 @@
 		49C8F2B42ABB364A00680ABB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -352,6 +355,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -360,6 +364,7 @@
 		49C8F2B52ABB364A00680ABB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -390,6 +395,7 @@
 		49C8F2B72ABB364A00680ABB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -397,6 +403,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.learn.MovieiOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -405,6 +412,7 @@
 		49C8F2B82ABB364A00680ABB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
