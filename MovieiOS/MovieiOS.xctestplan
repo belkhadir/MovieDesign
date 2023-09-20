@@ -1,0 +1,35 @@
+{
+  "configurations" : [
+    {
+      "id" : "DDDA06F4-8911-453C-BC69-3B35573B063E",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:MovieiOS.xcodeproj",
+          "identifier" : "49C8F2A02ABB364A00680ABB",
+          "name" : "MovieiOS"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random",
+    "testRepetitionMode" : "retryOnFailure"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MovieiOS.xcodeproj",
+        "identifier" : "49C8F2A82ABB364A00680ABB",
+        "name" : "MovieiOSTests"
+      }
+    }
+  ],
+  "version" : 1
+}
