@@ -11,6 +11,10 @@
 		49C8F2C62ABB3E1300680ABB /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 49C8F2C52ABB3E1300680ABB /* Cartfile */; };
 		49C8F2C82ABB3E7800680ABB /* MovieiOS.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 49C8F2C72ABB3E7800680ABB /* MovieiOS.xctestplan */; };
 		49C8F2CA2ABB3EFA00680ABB /* Cartfile.resolved in Resources */ = {isa = PBXBuildFile; fileRef = 49C8F2C92ABB3EFA00680ABB /* Cartfile.resolved */; };
+		49C8F2D02ABB444800680ABB /* MovieCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C8F2CE2ABB444800680ABB /* MovieCore.xcframework */; };
+		49C8F2D12ABB444800680ABB /* MovieCore.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49C8F2CE2ABB444800680ABB /* MovieCore.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		49C8F2D22ABB444900680ABB /* SwiftUIResources.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C8F2CF2ABB444800680ABB /* SwiftUIResources.xcframework */; };
+		49C8F2D32ABB444900680ABB /* SwiftUIResources.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 49C8F2CF2ABB444800680ABB /* SwiftUIResources.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +27,29 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		49C8F2D42ABB444900680ABB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				49C8F2D12ABB444800680ABB /* MovieCore.xcframework in Embed Frameworks */,
+				49C8F2D32ABB444900680ABB /* SwiftUIResources.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		49C8F2A12ABB364A00680ABB /* MovieiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MovieiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C8F2A92ABB364A00680ABB /* MovieiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C8F2C52ABB3E1300680ABB /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		49C8F2C72ABB3E7800680ABB /* MovieiOS.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MovieiOS.xctestplan; sourceTree = "<group>"; };
 		49C8F2C92ABB3EFA00680ABB /* Cartfile.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
+		49C8F2CE2ABB444800680ABB /* MovieCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MovieCore.xcframework; path = Carthage/Build/MovieCore.xcframework; sourceTree = "<group>"; };
+		49C8F2CF2ABB444800680ABB /* SwiftUIResources.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftUIResources.xcframework; path = Carthage/Build/SwiftUIResources.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C8F2D02ABB444800680ABB /* MovieCore.xcframework in Frameworks */,
+				49C8F2D22ABB444900680ABB /* SwiftUIResources.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +81,7 @@
 				49C8F2C02ABB3D9100680ABB /* MovieiOS */,
 				49C8F2AD2ABB364A00680ABB /* MovieiOSTests */,
 				49C8F2A22ABB364A00680ABB /* Products */,
+				49C8F2CD2ABB444800680ABB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,6 +109,15 @@
 			path = MovieiOS;
 			sourceTree = "<group>";
 		};
+		49C8F2CD2ABB444800680ABB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49C8F2CE2ABB444800680ABB /* MovieCore.xcframework */,
+				49C8F2CF2ABB444800680ABB /* SwiftUIResources.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -106,6 +139,7 @@
 				49C8F29D2ABB364A00680ABB /* Sources */,
 				49C8F29E2ABB364A00680ABB /* Frameworks */,
 				49C8F29F2ABB364A00680ABB /* Resources */,
+				49C8F2D42ABB444900680ABB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -350,6 +384,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -382,6 +417,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
