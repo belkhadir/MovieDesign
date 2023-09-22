@@ -38,29 +38,12 @@ struct MovieGridView_Previews: PreviewProvider {
         let movie3 = Movie(id: 3, title: "X man", releaseDate: date, imagePath: "", overview: "", voteAverage: 9.5, voteCount: 5000)
         let movie4 = Movie(id: 4, title: "TGO GO", releaseDate: date, imagePath: "", overview: "", voteAverage: 9.5, voteCount: 5000)
         
-        let viewModel1 = MoviePosterViewModel(movie: movie1)
-        let moviePosterView1 = MoviePosterView(viewModel: viewModel1, imagePosterView: {
-            AnyView(ImageView(data: Data()))
-            }
-        )
-        
-        let viewModel2 = MoviePosterViewModel(movie: movie2)
-        let moviePosterView2 = MoviePosterView(viewModel: viewModel2, imagePosterView: {
+        MovieGridView(moviesPosterView:   [movie1, movie2, movie3, movie4].map { movie in
+            let movieViewModel = MoviePosterViewModel(movie: movie)
+            return  MoviePosterView(viewModel: movieViewModel, imagePosterView: {
                 AnyView(ImageView(data: Data()))
-            }
-        )
-        
-        let viewModel3 = MoviePosterViewModel(movie: movie3)
-        let moviePosterView3 = MoviePosterView(viewModel: viewModel3, imagePosterView: {
-            AnyView(ImageView(data: Data()))
-            }
-        )
-        
-        let viewModel4 = MoviePosterViewModel(movie: movie4)
-        let moviePosterView4 = MoviePosterView(viewModel: viewModel4, imagePosterView: {
-                AnyView(ShimmerView())
-            }
-        )
-        MovieGridView(moviesPosterView: [moviePosterView1, moviePosterView2, moviePosterView3, moviePosterView4])
+                }
+            )
+        })
     }
 }

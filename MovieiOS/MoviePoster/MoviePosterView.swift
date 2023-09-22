@@ -11,7 +11,7 @@ import MovieCore
 public struct MoviePosterView: View {
     public typealias ImagePosterView = () -> AnyView
     private let viewModel: MoviePosterViewModel
-    @State private var imagePosterView: ImagePosterView
+    private let imagePosterView: ImagePosterView
     
     public init(viewModel: MoviePosterViewModel, imagePosterView: @escaping ImagePosterView) {
         self.viewModel = viewModel
@@ -21,22 +21,17 @@ public struct MoviePosterView: View {
     public var body: some View {
         VStack(spacing: 10) {
             imagePosterView()
-                .frame(width: 100, height: 200)
-
             Text(viewModel.title)
                 .font(.headline)
                 .multilineTextAlignment(.center)
-
             Text(viewModel.releaseDate)
                 .font(.subheadline)
                 .foregroundColor(.gray)
-
             HStack {
                 Image(systemName: "star.fill")
                     .resizable()
                     .foregroundColor(.yellow)
                     .frame(width: 15, height: 15)
-
                 Text(viewModel.vote)
                     .font(.caption)
             }
