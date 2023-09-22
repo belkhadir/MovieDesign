@@ -17,7 +17,7 @@ public final class MoviePosterViewModel {
         return formatter
     }()
     
-    init(movie: Movie) {
+    public init(movie: Movie) {
         self.movie = movie
     }
     

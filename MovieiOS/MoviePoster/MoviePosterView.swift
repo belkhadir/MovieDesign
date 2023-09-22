@@ -9,11 +9,11 @@ import SwiftUI
 import MovieCore
 
 public struct MoviePosterView: View {
-    typealias ImagePosterView = () -> AnyView
+    public typealias ImagePosterView = () -> AnyView
     private let viewModel: MoviePosterViewModel
     private let imagePosterView: ImagePosterView
     
-    init(viewModel: MoviePosterViewModel, imagePosterView: @escaping ImagePosterView) {
+    public init(viewModel: MoviePosterViewModel, imagePosterView: @escaping ImagePosterView) {
         self.viewModel = viewModel
         self.imagePosterView = imagePosterView
     }

@@ -10,7 +10,7 @@ import SwiftUI
 public struct ImageView: View {
     private let data: Data
     
-    init(data: Data) {
+    public init(data: Data) {
         self.data = data
     }
     

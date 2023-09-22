@@ -11,7 +11,7 @@ import MovieCore
 public struct MovieGridView: View {
     private let moviesPosterView: [MoviePosterView]
     
-    init(moviesPosterView: [MoviePosterView]) {
+    public init(moviesPosterView: [MoviePosterView]) {
         self.moviesPosterView = moviesPosterView
     }
     

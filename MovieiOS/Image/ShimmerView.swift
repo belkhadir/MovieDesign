@@ -9,7 +9,9 @@ import SwiftUI
 
 public struct ShimmerView: View {
     @State private var shimmerPhase: CGFloat = -1.0
-
+    
+    public init() {}
+    
     public var body: some View {
         LinearGradient(
             gradient: Gradient(colors: [
