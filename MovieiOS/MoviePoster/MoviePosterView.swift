@@ -11,7 +11,7 @@ import MovieCore
 public struct MoviePosterView: View {
     public typealias ImagePosterView = () -> AnyView
     private let viewModel: MoviePosterViewModel
-    private let imagePosterView: ImagePosterView
+    @State private var imagePosterView: ImagePosterView
     
     public init(viewModel: MoviePosterViewModel, imagePosterView: @escaping ImagePosterView) {
         self.viewModel = viewModel
