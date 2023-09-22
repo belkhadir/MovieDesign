@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct ShimmerView: View {
+public struct ShimmerView: View {
     @State private var shimmerPhase: CGFloat = -1.0
 
-    var body: some View {
+    public var body: some View {
         LinearGradient(
             gradient: Gradient(colors: [
                 Color.white.opacity(0.75),

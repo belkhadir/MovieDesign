@@ -8,7 +8,7 @@
 import SwiftUI
 import MovieCore
 
-struct MoviePosterView: View {
+public struct MoviePosterView: View {
     typealias ImagePosterView = () -> AnyView
     private let viewModel: MoviePosterViewModel
     private let imagePosterView: ImagePosterView
@@ -18,7 +18,7 @@ struct MoviePosterView: View {
         self.imagePosterView = imagePosterView
     }
     
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 10) {
             imagePosterView()
                 .frame(width: 100, height: 200)
@@ -46,11 +46,11 @@ struct MoviePosterView: View {
 }
 
 extension MoviePosterView: Hashable {
-    static func == (lhs: MoviePosterView, rhs: MoviePosterView) -> Bool {
+    public static func == (lhs: MoviePosterView, rhs: MoviePosterView) -> Bool {
         lhs.viewModel == rhs.viewModel
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(viewModel)
     }
 }

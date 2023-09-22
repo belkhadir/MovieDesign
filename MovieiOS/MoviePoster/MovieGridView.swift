@@ -8,14 +8,14 @@
 import SwiftUI
 import MovieCore
 
-struct MovieGridView: View {
+public struct MovieGridView: View {
     private let moviesPosterView: [MoviePosterView]
     
     init(moviesPosterView: [MoviePosterView]) {
         self.moviesPosterView = moviesPosterView
     }
     
-    var body: some View {
+    public var body: some View {
         ScrollView {
             LazyVGrid(
                 columns: Array(repeating: .init(.flexible()),

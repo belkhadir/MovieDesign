@@ -8,7 +8,7 @@
 import Foundation
 import MovieCore
 
-final class MoviePosterViewModel {
+public final class MoviePosterViewModel {
     private let movie: Movie
     
     private let dateFormatter: DateFormatter = {
@@ -35,11 +35,11 @@ final class MoviePosterViewModel {
 }
 
 extension MoviePosterViewModel: Hashable {
-    static func == (lhs: MoviePosterViewModel, rhs: MoviePosterViewModel) -> Bool {
+    public static func == (lhs: MoviePosterViewModel, rhs: MoviePosterViewModel) -> Bool {
         lhs.movie.id == rhs.movie.id
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(movie.id)
     }
 }

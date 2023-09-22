@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ImageView: View {
+public struct ImageView: View {
     private let data: Data
     
     init(data: Data) {
         self.data = data
     }
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             Image(uiImage: UIImage(data: data) ?? UIColor.red.toImage()!)
                 .resizable()
