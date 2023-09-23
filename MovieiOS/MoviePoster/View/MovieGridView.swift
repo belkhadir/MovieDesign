@@ -18,9 +18,10 @@ public struct MovieGridView: View {
     public var body: some View {
         ScrollView {
             LazyVGrid(
-                columns: Array(repeating: .init(.flexible()),
-                               count: 2)
-                , spacing: 20) {
+                columns: Array(
+                    repeating: .init(.flexible()),
+                    count: 2)
+                ,spacing: 20) {
                     ForEach(moviesPosterView, id: \.self) { moviePosterView in
                         moviePosterView
                         .aspectRatio(0.75, contentMode: .fit)

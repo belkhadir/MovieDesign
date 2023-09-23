@@ -40,6 +40,7 @@ public struct MoviePosterView: View {
     }
 }
 
+// MARK: - Extension+Hashable
 extension MoviePosterView: Hashable {
     public static func == (lhs: MoviePosterView, rhs: MoviePosterView) -> Bool {
         lhs.viewModel == rhs.viewModel

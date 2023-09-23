@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		499674452ABC817200F3EBE6 /* MoviePosterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499674442ABC817200F3EBE6 /* MoviePosterViewModel.swift */; };
 		499674482ABC8B8C00F3EBE6 /* MovieGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499674472ABC8B8C00F3EBE6 /* MovieGridView.swift */; };
+		4999A2992ABF679700C44D56 /* MoviePosterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4999A2982ABF679700C44D56 /* MoviePosterViewModelTests.swift */; };
 		49C8F2AA2ABB364A00680ABB /* MovieiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C8F2A12ABB364A00680ABB /* MovieiOS.framework */; };
 		49C8F2C62ABB3E1300680ABB /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 49C8F2C52ABB3E1300680ABB /* Cartfile */; };
 		49C8F2C82ABB3E7800680ABB /* MovieiOS.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 49C8F2C72ABB3E7800680ABB /* MovieiOS.xctestplan */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		499674442ABC817200F3EBE6 /* MoviePosterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterViewModel.swift; sourceTree = "<group>"; };
 		499674472ABC8B8C00F3EBE6 /* MovieGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridView.swift; sourceTree = "<group>"; };
+		4999A2982ABF679700C44D56 /* MoviePosterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterViewModelTests.swift; sourceTree = "<group>"; };
 		49C8F2A12ABB364A00680ABB /* MovieiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MovieiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C8F2A92ABB364A00680ABB /* MovieiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C8F2C52ABB3E1300680ABB /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
@@ -86,11 +88,35 @@
 		499674462ABC8AA500F3EBE6 /* MoviePoster */ = {
 			isa = PBXGroup;
 			children = (
-				49C8F2D52ABB452600680ABB /* MoviePosterView.swift */,
-				499674442ABC817200F3EBE6 /* MoviePosterViewModel.swift */,
-				499674472ABC8B8C00F3EBE6 /* MovieGridView.swift */,
+				4999A2942ABF653A00C44D56 /* View */,
+				4999A2972ABF656D00C44D56 /* ViewModel */,
 			);
 			path = MoviePoster;
+			sourceTree = "<group>";
+		};
+		4999A2942ABF653A00C44D56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49C8F2D52ABB452600680ABB /* MoviePosterView.swift */,
+				499674472ABC8B8C00F3EBE6 /* MovieGridView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4999A2952ABF654200C44D56 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				49C8F2DA2ABB78FA00680ABB /* ImageView.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		4999A2972ABF656D00C44D56 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				499674442ABC817200F3EBE6 /* MoviePosterViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		49C8F2972ABB364A00680ABB = {
@@ -118,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				49C8F2C72ABB3E7800680ABB /* MovieiOS.xctestplan */,
+				4999A2982ABF679700C44D56 /* MoviePosterViewModelTests.swift */,
 			);
 			path = MovieiOSTests;
 			sourceTree = "<group>";
@@ -125,8 +152,9 @@
 		49C8F2C02ABB3D9100680ABB /* MovieiOS */ = {
 			isa = PBXGroup;
 			children = (
-				49C8F2D92ABB78EA00680ABB /* Image */,
+				4999A2952ABF654200C44D56 /* Image */,
 				499674462ABC8AA500F3EBE6 /* MoviePoster */,
+				49C8F2D92ABB78EA00680ABB /* Shimmer */,
 			);
 			path = MovieiOS;
 			sourceTree = "<group>";
@@ -140,13 +168,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		49C8F2D92ABB78EA00680ABB /* Image */ = {
+		49C8F2D92ABB78EA00680ABB /* Shimmer */ = {
 			isa = PBXGroup;
 			children = (
-				49C8F2DA2ABB78FA00680ABB /* ImageView.swift */,
 				49C8F2DE2ABB84F700680ABB /* ShimmerView.swift */,
 			);
-			path = Image;
+			path = Shimmer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,7 +242,7 @@
 					};
 					49C8F2A82ABB364A00680ABB = {
 						CreatedOnToolsVersion = 14.3.1;
-						LastSwiftMigration = 1430;
+						LastSwiftMigration = 1500;
 					};
 				};
 			};
@@ -275,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4999A2992ABF679700C44D56 /* MoviePosterViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

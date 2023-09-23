@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:MovieiOS.xctestplan"
+            reference = "container:MovieiOSTests/MovieiOS.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>

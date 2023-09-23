@@ -18,7 +18,7 @@ public struct ImageView: View {
         if let uiImage = UIImage(data: data) {
             return Image(uiImage: uiImage)
         } else {
-            return Image(systemName: "popcorn.fill")
+            return Image(systemName: "exclamationmark.shield")
         }
     }
 
