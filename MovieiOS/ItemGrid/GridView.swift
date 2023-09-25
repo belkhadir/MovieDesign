@@ -1,5 +1,5 @@
 //
-//  ItemGridView.swift
+//  GridView.swift
 //  MovieiOS
 //
 //  Created by Belkhadir Anas on 21/9/2023.

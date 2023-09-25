@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		4901CB3E2AC08A8800F3D7FC /* ConstructMoviePosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4901CB3D2AC08A8800F3D7FC /* ConstructMoviePosterView.swift */; };
 		4901CB402AC09AD600F3D7FC /* MovieProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4901CB3F2AC09AD600F3D7FC /* MovieProviding.swift */; };
+		4901CB472AC1DBAA00F3D7FC /* MockMovieProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4901CB462AC1DBAA00F3D7FC /* MockMovieProvider.swift */; };
 		499674452ABC817200F3EBE6 /* MoviePosterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499674442ABC817200F3EBE6 /* MoviePosterViewModel.swift */; };
-		499674482ABC8B8C00F3EBE6 /* ItemGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499674472ABC8B8C00F3EBE6 /* ItemGridView.swift */; };
+		499674482ABC8B8C00F3EBE6 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499674472ABC8B8C00F3EBE6 /* GridView.swift */; };
 		4999A2992ABF679700C44D56 /* MoviePosterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4999A2982ABF679700C44D56 /* MoviePosterViewModelTests.swift */; };
 		49C8F2AA2ABB364A00680ABB /* MovieiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C8F2A12ABB364A00680ABB /* MovieiOS.framework */; };
 		49C8F2C82ABB3E7800680ABB /* MovieiOS.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = 49C8F2C72ABB3E7800680ABB /* MovieiOS.xctestplan */; };
@@ -45,8 +46,9 @@
 /* Begin PBXFileReference section */
 		4901CB3D2AC08A8800F3D7FC /* ConstructMoviePosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructMoviePosterView.swift; sourceTree = "<group>"; };
 		4901CB3F2AC09AD600F3D7FC /* MovieProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProviding.swift; sourceTree = "<group>"; };
+		4901CB462AC1DBAA00F3D7FC /* MockMovieProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieProvider.swift; sourceTree = "<group>"; };
 		499674442ABC817200F3EBE6 /* MoviePosterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterViewModel.swift; sourceTree = "<group>"; };
-		499674472ABC8B8C00F3EBE6 /* ItemGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemGridView.swift; sourceTree = "<group>"; };
+		499674472ABC8B8C00F3EBE6 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		4999A2982ABF679700C44D56 /* MoviePosterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterViewModelTests.swift; sourceTree = "<group>"; };
 		49C8F2A12ABB364A00680ABB /* MovieiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MovieiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49C8F2A92ABB364A00680ABB /* MovieiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,14 +80,23 @@
 		4901CB362AC05F9200F3D7FC /* ItemGrid */ = {
 			isa = PBXGroup;
 			children = (
-				499674472ABC8B8C00F3EBE6 /* ItemGridView.swift */,
+				499674472ABC8B8C00F3EBE6 /* GridView.swift */,
 			);
 			path = ItemGrid;
+			sourceTree = "<group>";
+		};
+		4901CB452AC1DB9D00F3D7FC /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				4901CB462AC1DBAA00F3D7FC /* MockMovieProvider.swift */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		499674462ABC8AA500F3EBE6 /* MoviePoster */ = {
 			isa = PBXGroup;
 			children = (
+				4901CB3F2AC09AD600F3D7FC /* MovieProviding.swift */,
 				4901CB3D2AC08A8800F3D7FC /* ConstructMoviePosterView.swift */,
 				4999A2942ABF653A00C44D56 /* View */,
 				4999A2972ABF656D00C44D56 /* ViewModel */,
@@ -138,8 +149,9 @@
 		49C8F2AD2ABB364A00680ABB /* MovieiOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				49C8F2C72ABB3E7800680ABB /* MovieiOS.xctestplan */,
 				4999A2982ABF679700C44D56 /* MoviePosterViewModelTests.swift */,
+				49C8F2C72ABB3E7800680ABB /* MovieiOS.xctestplan */,
+				4901CB452AC1DB9D00F3D7FC /* Mock */,
 			);
 			path = MovieiOSTests;
 			sourceTree = "<group>";
@@ -147,7 +159,6 @@
 		49C8F2C02ABB3D9100680ABB /* MovieiOS */ = {
 			isa = PBXGroup;
 			children = (
-				4901CB3F2AC09AD600F3D7FC /* MovieProviding.swift */,
 				4901CB362AC05F9200F3D7FC /* ItemGrid */,
 				4999A2952ABF654200C44D56 /* Image */,
 				499674462ABC8AA500F3EBE6 /* MoviePoster */,
@@ -222,7 +233,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					49C8F2A02ABB364A00680ABB = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -276,7 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				499674482ABC8B8C00F3EBE6 /* ItemGridView.swift in Sources */,
+				499674482ABC8B8C00F3EBE6 /* GridView.swift in Sources */,
 				4901CB402AC09AD600F3D7FC /* MovieProviding.swift in Sources */,
 				49C8F2DF2ABB84F700680ABB /* ShimmerView.swift in Sources */,
 				49C8F2DB2ABB78FA00680ABB /* ImageView.swift in Sources */,
@@ -291,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4999A2992ABF679700C44D56 /* MoviePosterViewModelTests.swift in Sources */,
+				4901CB472AC1DBAA00F3D7FC /* MockMovieProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +354,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -405,6 +418,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -429,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -463,6 +478,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

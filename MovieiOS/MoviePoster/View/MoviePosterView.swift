@@ -6,20 +6,19 @@
 //
 
 import SwiftUI
-import MovieCore
 
 public typealias ImagePosterView = () -> AnyView
 
-struct MoviePosterView: View {
+public struct MoviePosterView: View {
     private let viewModel: MoviePosterDisplayable
     private let imagePosterView: ImagePosterView
     
-    init(viewModel: MoviePosterDisplayable, imagePosterView: @escaping ImagePosterView) {
+    public init(viewModel: MoviePosterDisplayable, imagePosterView: @escaping ImagePosterView) {
         self.viewModel = viewModel
         self.imagePosterView = imagePosterView
     }
     
-    var body: some View {
+    public var body: some View {
         VStack(spacing: 10) {
             imagePosterView()
             Text(viewModel.title)
