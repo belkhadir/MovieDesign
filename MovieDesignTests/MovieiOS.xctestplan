@@ -12,9 +12,9 @@
     "codeCoverage" : {
       "targets" : [
         {
-          "containerPath" : "container:MovieiOS.xcodeproj",
+          "containerPath" : "container:MovieDesign.xcodeproj",
           "identifier" : "49C8F2A02ABB364A00680ABB",
-          "name" : "MovieiOS"
+          "name" : "MovieDesign"
         }
       ]
     },
@@ -25,9 +25,9 @@
     {
       "parallelizable" : true,
       "target" : {
-        "containerPath" : "container:MovieiOS.xcodeproj",
+        "containerPath" : "container:MovieDesign.xcodeproj",
         "identifier" : "49C8F2A82ABB364A00680ABB",
-        "name" : "MovieiOSTests"
+        "name" : "MovieDesignTests"
       }
     }
   ],

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "49C8F2A02ABB364A00680ABB"
-               BuildableName = "MovieiOS.framework"
-               BlueprintName = "MovieiOS"
-               ReferencedContainer = "container:MovieiOS.xcodeproj">
+               BuildableName = "MovieDesign.framework"
+               BlueprintName = "MovieDesign"
+               ReferencedContainer = "container:MovieDesign.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,9 +40,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "49C8F2A82ABB364A00680ABB"
-               BuildableName = "MovieiOSTests.xctest"
-               BlueprintName = "MovieiOSTests"
-               ReferencedContainer = "container:MovieiOS.xcodeproj">
+               BuildableName = "MovieDesignTests.xctest"
+               BlueprintName = "MovieDesignTests"
+               ReferencedContainer = "container:MovieDesign.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -68,9 +68,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "49C8F2A02ABB364A00680ABB"
-            BuildableName = "MovieiOS.framework"
-            BlueprintName = "MovieiOS"
-            ReferencedContainer = "container:MovieiOS.xcodeproj">
+            BuildableName = "MovieDesign.framework"
+            BlueprintName = "MovieDesign"
+            ReferencedContainer = "container:MovieDesign.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

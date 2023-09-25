@@ -1,6 +1,6 @@
 //
 //  ImageView.swift
-//  MovieiOS
+//  MovieDesign
 //
 //  Created by Belkhadir Anas on 20/9/2023.
 //

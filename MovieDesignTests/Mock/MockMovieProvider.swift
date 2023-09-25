@@ -1,12 +1,12 @@
 //
 //  MockMovieProvider.swift
-//  MovieiOSTests
+//  MovieDesignTests
 //
 //  Created by Belkhadir Anas on 25/9/2023.
 //
 
 import Foundation
-import MovieiOS
+import MovieDesign
 
 struct MockMovieProvider: MovieProviding {
     let id: Int

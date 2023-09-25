@@ -1,12 +1,12 @@
 //
 //  MoviePosterViewModelTests.swift
-//  MovieiOSTests
+//  MovieDesignTests
 //
 //  Created by Belkhadir Anas on 23/9/2023.
 //
 
 import XCTest
-import MovieiOS
+import MovieDesign
 
 final class MoviePosterViewModelTests: XCTestCase {
 

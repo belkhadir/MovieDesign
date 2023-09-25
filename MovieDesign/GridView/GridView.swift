@@ -1,6 +1,6 @@
 //
 //  GridView.swift
-//  MovieiOS
+//  MovieDesign
 //
 //  Created by Belkhadir Anas on 21/9/2023.
 //
