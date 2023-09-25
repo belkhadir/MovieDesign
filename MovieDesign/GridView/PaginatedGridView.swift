@@ -8,11 +8,11 @@
 import SwiftUI
 
 public struct PaginatedGridView<Content>: View where Content: View {
-    @State private var contents: [Content]
+    @Binding private var contents: [Content]
     private let loadMoreIfNeeded: () -> Void
     
-    public init(contents: [Content], loadMoreIfNeeded: @escaping () -> Void) {
-        self.contents = contents
+    public init(contents: Binding<[Content]>, loadMoreIfNeeded: @escaping () -> Void) {
+        self._contents = contents
         self.loadMoreIfNeeded = loadMoreIfNeeded
     }
     
@@ -21,7 +21,7 @@ public struct PaginatedGridView<Content>: View where Content: View {
             LazyVGrid(
                 columns: Array(repeating: .init(.flexible()), count: 2),
                 spacing: 20) {
-                    ForEach(0..<contents.count, id: \.self) { index in
+                    ForEach(contents.indices, id: \.self) { index in
                         if isLastItem(index) {
                             contents[index].onAppear(perform: {
                                 loadMoreIfNeeded()
@@ -36,6 +36,7 @@ public struct PaginatedGridView<Content>: View where Content: View {
         }
     }
 }
+
 
 // MARK: - Helpers
 private extension PaginatedGridView {

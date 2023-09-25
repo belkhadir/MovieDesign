@@ -29,23 +29,10 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:MovieiOSTests/MovieiOS.xctestplan"
+            reference = "container:MovieDesignTests/MovieDesign.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "49C8F2A82ABB364A00680ABB"
-               BuildableName = "MovieDesignTests.xctest"
-               BlueprintName = "MovieDesignTests"
-               ReferencedContainer = "container:MovieDesign.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
