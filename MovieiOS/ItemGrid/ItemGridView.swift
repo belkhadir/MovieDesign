@@ -11,7 +11,7 @@ public struct ItemGridView<Item: Hashable>: View where Item: View {
     private let views: () -> [Item]
     private let loadMoreIfNeeded: () -> Void
     
-    init(@ViewBuilder content: @escaping () -> [Item], loadMoreIfNeeded: @escaping () -> Void) {
+    public init(@ViewBuilder content: @escaping () -> [Item], loadMoreIfNeeded: @escaping () -> Void) {
         self.views = content
         self.loadMoreIfNeeded = loadMoreIfNeeded
     }
