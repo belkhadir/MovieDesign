@@ -20,7 +20,7 @@ struct MoviesGridView: View {
                 columns: Array(repeating: .init(.flexible()),count: 2)
                 ,spacing: 20) {
                     ForEach(viewModel.movies, id: \.id) { movie in
-                        ConstructMoviePosterView()
+                        ConstructMoviePosterView
                             .constructView(
                                 movieProvider: movie,
                                 imagePosterView: {
