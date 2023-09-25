@@ -6,10 +6,15 @@
 //
 
 import Foundation
-import MovieCore
 
-public final class MoviePosterViewModel {
-    private let movie: Movie
+protocol MoviePosterDisplayable {
+    var title: String { get }
+    var releaseDate: String { get }
+    var vote: String { get }
+}
+
+final class MoviePosterViewModel {
+    private let movieProvider: MovieProviding
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -17,29 +22,22 @@ public final class MoviePosterViewModel {
         return formatter
     }()
     
-    public init(movie: Movie) {
-        self.movie = movie
-    }
-    
-    var releaseDate: String {
-        dateFormatter.string(from: movie.releaseDate)
+    init(movieProvider: MovieProviding) {
+        self.movieProvider = movieProvider
     }
     
     var title: String {
-        movie.title.capitalized
+        movieProvider.title.capitalized
+    }
+    
+    var releaseDate: String {
+        dateFormatter.string(from: movieProvider.releaseDate)
     }
     
     var vote: String {
-        "\(String(format: "%.1f", movie.voteAverage)) (\(movie.voteCount) votes)"
+        "\(String(format: "%.1f", movieProvider.voteAverage)) (\(movieProvider.voteCount) votes)"
     }
 }
 
-extension MoviePosterViewModel: Hashable {
-    public static func == (lhs: MoviePosterViewModel, rhs: MoviePosterViewModel) -> Bool {
-        lhs.movie.id == rhs.movie.id
-    }
-    
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(movie.id)
-    }
-}
+// MARK: - MoviePosterDisplayable
+extension MoviePosterViewModel: MoviePosterDisplayable {}

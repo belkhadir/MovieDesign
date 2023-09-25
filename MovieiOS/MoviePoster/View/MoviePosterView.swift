@@ -8,17 +8,18 @@
 import SwiftUI
 import MovieCore
 
-public struct MoviePosterView: View {
-    public typealias ImagePosterView = () -> AnyView
-    private let viewModel: MoviePosterViewModel
+public typealias ImagePosterView = () -> AnyView
+
+struct MoviePosterView: View {
+    private let viewModel: MoviePosterDisplayable
     private let imagePosterView: ImagePosterView
     
-    public init(viewModel: MoviePosterViewModel, imagePosterView: @escaping ImagePosterView) {
+    init(viewModel: MoviePosterDisplayable, imagePosterView: @escaping ImagePosterView) {
         self.viewModel = viewModel
         self.imagePosterView = imagePosterView
     }
     
-    public var body: some View {
+    var body: some View {
         VStack(spacing: 10) {
             imagePosterView()
             Text(viewModel.title)
@@ -40,25 +41,20 @@ public struct MoviePosterView: View {
     }
 }
 
-// MARK: - Extension+Hashable
-extension MoviePosterView: Hashable {
-    public static func == (lhs: MoviePosterView, rhs: MoviePosterView) -> Bool {
-        lhs.viewModel == rhs.viewModel
-    }
-    
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(viewModel)
-    }
-}
-
 struct MoviePosterView_Previews: PreviewProvider {
     static var previews: some View {
-        let date = Date()
-        let movie = Movie(id: 0, title: "The Matrix", releaseDate: date, imagePath: "", overview: "", voteAverage: 9.5, voteCount: 5000)
-        let viewModel = MoviePosterViewModel(movie: movie)
+        let viewModel = MoviePosterViewModel(movieProvider: Movie())
         MoviePosterView(viewModel: viewModel, imagePosterView: {
                 AnyView(ShimmerView())
             }
         )
+    }
+    
+    private struct Movie: MovieProviding {
+        var id: Int = 0
+        var title: String = "The Matrix"
+        var releaseDate: Date = Date()
+        var voteAverage: Double = 9.5
+        var voteCount: Int = 5000
     }
 }
