@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-public struct ItemGridView<Item>: View where Item: View {
-    private let views: () -> [Item]
+public struct GridView<Content>: View where Content: View {
+    private let views: () -> [Content]
     private let loadMoreIfNeeded: () -> Void
     
-    public init(@ViewBuilder content: @escaping () -> [Item], loadMoreIfNeeded: @escaping () -> Void) {
+    public init(@ViewBuilder content: @escaping () -> [Content], loadMoreIfNeeded: @escaping () -> Void) {
         self.views = content
         self.loadMoreIfNeeded = loadMoreIfNeeded
     }
@@ -38,7 +38,7 @@ public struct ItemGridView<Item>: View where Item: View {
 }
 
 // MARK: - Helpers
-private extension ItemGridView {
+private extension GridView {
     func isLastItem(_ index: Int) -> Bool {
         return index == views().count - 1
     }
