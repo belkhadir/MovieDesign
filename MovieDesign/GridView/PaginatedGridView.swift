@@ -36,7 +36,7 @@ public struct PaginatedGridView<Content>: View where Content: View {
         }
     }
     
-    mutating func append(sequence: [Content]) {
+    mutating public func append(sequence: [Content]) {
         contents += sequence
     }
 }
