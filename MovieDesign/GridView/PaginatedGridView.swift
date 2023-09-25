@@ -8,11 +8,11 @@
 import SwiftUI
 
 public struct PaginatedGridView<Content>: View where Content: View {
-    @Binding private var contents: [Content]
+    private var contents: [Content]
     private let loadMoreIfNeeded: () -> Void
     
-    public init(contents: Binding<[Content]>, loadMoreIfNeeded: @escaping () -> Void) {
-        self._contents = contents
+    public init(contents: [Content], loadMoreIfNeeded: @escaping () -> Void) {
+        self.contents = contents
         self.loadMoreIfNeeded = loadMoreIfNeeded
     }
     
@@ -35,8 +35,11 @@ public struct PaginatedGridView<Content>: View where Content: View {
             }.padding()
         }
     }
+    
+    mutating func append(sequence: [Content]) {
+        contents += sequence
+    }
 }
-
 
 // MARK: - Helpers
 private extension PaginatedGridView {

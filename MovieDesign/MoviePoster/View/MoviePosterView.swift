@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-public struct MoviePosterView<ImagePosterView>: View where ImagePosterView: View {
+public struct MoviePosterView<Content: View>: View {
     private let viewModel: MoviePosterDisplayable
-    private let imagePosterView: () -> ImagePosterView
+    private let imagePosterView: Content
     
-    public init(viewModel: MoviePosterDisplayable, imagePosterView: @escaping () -> ImagePosterView) {
+    public init(viewModel: MoviePosterDisplayable, imagePosterView: Content) {
         self.viewModel = viewModel
         self.imagePosterView = imagePosterView
     }
     
     public var body: some View {
         VStack(spacing: 10) {
-            imagePosterView()
+            imagePosterView
             Text(viewModel.title)
                 .font(.headline)
                 .multilineTextAlignment(.center)
@@ -26,7 +26,7 @@ public struct MoviePosterView<ImagePosterView>: View where ImagePosterView: View
                 .font(.subheadline)
                 .foregroundColor(.gray)
             HStack {
-                Image(systemName: "star.fill")
+                Image(systemName: viewModel.imageName)
                     .resizable()
                     .foregroundColor(.yellow)
                     .frame(width: 15, height: 15)
@@ -41,10 +41,7 @@ public struct MoviePosterView<ImagePosterView>: View where ImagePosterView: View
 struct MoviePosterView_Previews: PreviewProvider {
     static var previews: some View {
         let viewModel = MoviePosterViewModel(movieProvider: Movie())
-        MoviePosterView(viewModel: viewModel, imagePosterView: {
-                AnyView(ShimmerView())
-            }
-        )
+        MoviePosterView(viewModel: viewModel, imagePosterView: ShimmerView())
     }
     
     private struct Movie: MovieProviding {

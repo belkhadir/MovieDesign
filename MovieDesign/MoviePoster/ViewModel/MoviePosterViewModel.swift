@@ -10,6 +10,7 @@ import Foundation
 public protocol MoviePosterDisplayable {
     var title: String { get }
     var releaseDate: String { get }
+    var imageName: String { get }
     var vote: String { get }
 }
 
@@ -32,6 +33,10 @@ public final class MoviePosterViewModel {
     
     public var releaseDate: String {
         dateFormatter.string(from: movieProvider.releaseDate)
+    }
+    
+    public var imageName: String {
+        "star.fill"
     }
     
     public var vote: String {
