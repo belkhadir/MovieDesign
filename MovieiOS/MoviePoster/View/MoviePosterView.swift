@@ -7,13 +7,11 @@
 
 import SwiftUI
 
-public typealias ImagePosterView = () -> AnyView
-
-public struct MoviePosterView: View {
+public struct MoviePosterView<ImagePosterView>: View where ImagePosterView: View {
     private let viewModel: MoviePosterDisplayable
-    private let imagePosterView: ImagePosterView
+    private let imagePosterView: () -> ImagePosterView
     
-    public init(viewModel: MoviePosterDisplayable, imagePosterView: @escaping ImagePosterView) {
+    public init(viewModel: MoviePosterDisplayable, imagePosterView: @escaping () -> ImagePosterView) {
         self.viewModel = viewModel
         self.imagePosterView = imagePosterView
     }

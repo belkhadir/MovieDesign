@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4901CB3E2AC08A8800F3D7FC /* ConstructMoviePosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4901CB3D2AC08A8800F3D7FC /* ConstructMoviePosterView.swift */; };
 		4901CB402AC09AD600F3D7FC /* MovieProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4901CB3F2AC09AD600F3D7FC /* MovieProviding.swift */; };
 		4901CB472AC1DBAA00F3D7FC /* MockMovieProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4901CB462AC1DBAA00F3D7FC /* MockMovieProvider.swift */; };
 		499674452ABC817200F3EBE6 /* MoviePosterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499674442ABC817200F3EBE6 /* MoviePosterViewModel.swift */; };
@@ -44,7 +43,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4901CB3D2AC08A8800F3D7FC /* ConstructMoviePosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructMoviePosterView.swift; sourceTree = "<group>"; };
 		4901CB3F2AC09AD600F3D7FC /* MovieProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProviding.swift; sourceTree = "<group>"; };
 		4901CB462AC1DBAA00F3D7FC /* MockMovieProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieProvider.swift; sourceTree = "<group>"; };
 		499674442ABC817200F3EBE6 /* MoviePosterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterViewModel.swift; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				4901CB3F2AC09AD600F3D7FC /* MovieProviding.swift */,
-				4901CB3D2AC08A8800F3D7FC /* ConstructMoviePosterView.swift */,
 				4999A2942ABF653A00C44D56 /* View */,
 				4999A2972ABF656D00C44D56 /* ViewModel */,
 			);
@@ -291,7 +288,6 @@
 				4901CB402AC09AD600F3D7FC /* MovieProviding.swift in Sources */,
 				49C8F2DF2ABB84F700680ABB /* ShimmerView.swift in Sources */,
 				49C8F2DB2ABB78FA00680ABB /* ImageView.swift in Sources */,
-				4901CB3E2AC08A8800F3D7FC /* ConstructMoviePosterView.swift in Sources */,
 				499674452ABC817200F3EBE6 /* MoviePosterViewModel.swift in Sources */,
 				49C8F2D62ABB452600680ABB /* MoviePosterView.swift in Sources */,
 			);
