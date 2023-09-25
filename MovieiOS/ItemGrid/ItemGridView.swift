@@ -11,7 +11,7 @@ public struct GridView<Content>: View where Content: View {
     private let views: () -> [Content]
     private let loadMoreIfNeeded: () -> Void
     
-    public init(@ViewBuilder content: @escaping () -> [Content], loadMoreIfNeeded: @escaping () -> Void) {
+    public init(content: @escaping () -> [Content], loadMoreIfNeeded: @escaping () -> Void) {
         self.views = content
         self.loadMoreIfNeeded = loadMoreIfNeeded
     }
