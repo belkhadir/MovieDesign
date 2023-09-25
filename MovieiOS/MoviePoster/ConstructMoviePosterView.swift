@@ -8,7 +8,7 @@
 import SwiftUI
 
 public final class ConstructMoviePosterView {
-    public func constructView(movieProvider: MovieProviding, imagePosterView: @escaping ImagePosterView) -> some View {
+    public static func constructView(movieProvider: MovieProviding, imagePosterView: @escaping ImagePosterView) -> some View {
         let viewModel = MoviePosterViewModel(movieProvider: movieProvider)
         let view = MoviePosterView(viewModel: viewModel, imagePosterView: imagePosterView)
         return view
