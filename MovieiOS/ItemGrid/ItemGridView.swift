@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct ItemGridView<Item: Hashable>: View where Item: View {
+public struct ItemGridView<Item>: View where Item: View {
     private let views: () -> [Item]
     private let loadMoreIfNeeded: () -> Void
     
