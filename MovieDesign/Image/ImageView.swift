@@ -8,14 +8,14 @@
 import SwiftUI
 
 public struct ImageView: View {
-    private let data: Data
+    private let imageDataProvider: ImageDataProvinding
 
-    public init(data: Data) {
-        self.data = data
+    public init(imageDataProvider: ImageDataProvinding) {
+        self.imageDataProvider = imageDataProvider
     }
 
     private var imageFromData: Image {
-        if let uiImage = UIImage(data: data) {
+        if let uiImage = UIImage(data: imageDataProvider.data) {
             return Image(uiImage: uiImage)
         } else {
             return Image(systemName: "exclamationmark.shield")
@@ -35,6 +35,12 @@ public struct ImageView: View {
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageView(data: Data())
+        ImageView(imageDataProvider: MockImageDataProvinding())
+    }
+    
+    private class MockImageDataProvinding: ImageDataProvinding {
+        var data: Data {
+            Data()
+        }
     }
 }

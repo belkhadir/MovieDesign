@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4901CB402AC09AD600F3D7FC /* MovieProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4901CB3F2AC09AD600F3D7FC /* MovieProviding.swift */; };
 		4901CB472AC1DBAA00F3D7FC /* MockMovieProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4901CB462AC1DBAA00F3D7FC /* MockMovieProvider.swift */; };
+		4965D4A82AC32751006D2D37 /* ImageDataProvinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965D4A72AC32751006D2D37 /* ImageDataProvinding.swift */; };
+		4965D4AA2AC3542B006D2D37 /* MoviePosterComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965D4A92AC3542B006D2D37 /* MoviePosterComposition.swift */; };
+		4965D4AC2AC35727006D2D37 /* MoviesGridViewUIComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965D4AB2AC35727006D2D37 /* MoviesGridViewUIComposition.swift */; };
 		499674452ABC817200F3EBE6 /* MoviePosterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499674442ABC817200F3EBE6 /* MoviePosterViewModel.swift */; };
 		499674482ABC8B8C00F3EBE6 /* PaginatedGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499674472ABC8B8C00F3EBE6 /* PaginatedGridView.swift */; };
 		4999A2992ABF679700C44D56 /* MoviePosterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4999A2982ABF679700C44D56 /* MoviePosterViewModelTests.swift */; };
@@ -45,6 +48,9 @@
 /* Begin PBXFileReference section */
 		4901CB3F2AC09AD600F3D7FC /* MovieProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieProviding.swift; sourceTree = "<group>"; };
 		4901CB462AC1DBAA00F3D7FC /* MockMovieProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieProvider.swift; sourceTree = "<group>"; };
+		4965D4A72AC32751006D2D37 /* ImageDataProvinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataProvinding.swift; sourceTree = "<group>"; };
+		4965D4A92AC3542B006D2D37 /* MoviePosterComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterComposition.swift; sourceTree = "<group>"; };
+		4965D4AB2AC35727006D2D37 /* MoviesGridViewUIComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesGridViewUIComposition.swift; sourceTree = "<group>"; };
 		499674442ABC817200F3EBE6 /* MoviePosterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterViewModel.swift; sourceTree = "<group>"; };
 		499674472ABC8B8C00F3EBE6 /* PaginatedGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedGridView.swift; sourceTree = "<group>"; };
 		4999A2982ABF679700C44D56 /* MoviePosterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterViewModelTests.swift; sourceTree = "<group>"; };
@@ -79,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				499674472ABC8B8C00F3EBE6 /* PaginatedGridView.swift */,
+				4965D4AB2AC35727006D2D37 /* MoviesGridViewUIComposition.swift */,
 			);
 			path = GridView;
 			sourceTree = "<group>";
@@ -94,6 +101,7 @@
 		499674462ABC8AA500F3EBE6 /* MoviePoster */ = {
 			isa = PBXGroup;
 			children = (
+				4965D4A92AC3542B006D2D37 /* MoviePosterComposition.swift */,
 				4901CB3F2AC09AD600F3D7FC /* MovieProviding.swift */,
 				4999A2942ABF653A00C44D56 /* View */,
 				4999A2972ABF656D00C44D56 /* ViewModel */,
@@ -112,6 +120,7 @@
 		4999A2952ABF654200C44D56 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				4965D4A72AC32751006D2D37 /* ImageDataProvinding.swift */,
 				49C8F2DA2ABB78FA00680ABB /* ImageView.swift */,
 			);
 			path = Image;
@@ -284,6 +293,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4965D4AA2AC3542B006D2D37 /* MoviePosterComposition.swift in Sources */,
+				4965D4AC2AC35727006D2D37 /* MoviesGridViewUIComposition.swift in Sources */,
+				4965D4A82AC32751006D2D37 /* ImageDataProvinding.swift in Sources */,
 				499674482ABC8B8C00F3EBE6 /* PaginatedGridView.swift in Sources */,
 				4901CB402AC09AD600F3D7FC /* MovieProviding.swift in Sources */,
 				49C8F2DF2ABB84F700680ABB /* ShimmerView.swift in Sources */,
