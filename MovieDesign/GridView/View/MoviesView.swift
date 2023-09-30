@@ -36,6 +36,9 @@ struct MoviesView<ViewModel: MoviesDiplayable & ObservableObject>: View {
                     }
                 }
         }.padding()
+        .onAppear(perform: {
+            moviesviewModel.fetchMovies()
+        })
     }
 }
 
