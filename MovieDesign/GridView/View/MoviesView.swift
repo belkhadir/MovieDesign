@@ -22,7 +22,7 @@ struct MoviesView<ViewModel: MoviesDiplayable & ObservableObject>: View {
                 columns: Array(repeating: .init(.flexible()), count: 2),
                 spacing: 20) {
                     ForEach(moviesviewModel.movies, id: \.id) { movie in
-                        AnyView(MoviePosterUIComposition()
+                        AnyView(MoviePosterUIComposition
                             .constructView(
                                 movieProvider: movie, 
                                 imageResourceService: imageResourceService(movie)
