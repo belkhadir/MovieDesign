@@ -7,14 +7,14 @@
 
 import Foundation
 
-public protocol MoviePosterDisplayable {
+protocol MoviePosterDisplayable {
     var title: String { get }
     var releaseDate: String { get }
     var imageName: String { get }
     var vote: String { get }
 }
 
-public final class MoviePosterViewModel {
+final class MoviePosterViewModel {
     private let movieProvider: MovieProviding
     
     private let dateFormatter: DateFormatter = {
@@ -23,23 +23,23 @@ public final class MoviePosterViewModel {
         return formatter
     }()
     
-    public init(movieProvider: MovieProviding) {
+    init(movieProvider: MovieProviding) {
         self.movieProvider = movieProvider
     }
     
-    public var title: String {
+    var title: String {
         movieProvider.title.capitalized
     }
     
-    public var releaseDate: String {
+    var releaseDate: String {
         dateFormatter.string(from: movieProvider.releaseDate)
     }
     
-    public var imageName: String {
+    var imageName: String {
         "star.fill"
     }
     
-    public var vote: String {
+    var vote: String {
         "\(String(format: "%.1f", movieProvider.voteAverage)) (\(movieProvider.voteCount) votes)"
     }
 }

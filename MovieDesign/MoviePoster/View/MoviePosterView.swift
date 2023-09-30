@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-public struct MoviePosterView<Content: View>: View {
+struct MoviePosterView<Content: View>: View {
     private let viewModel: MoviePosterDisplayable
     private let imagePosterView: Content
     
-    public init(viewModel: MoviePosterDisplayable, imagePosterView: Content) {
+    init(viewModel: MoviePosterDisplayable, imagePosterView: Content) {
         self.viewModel = viewModel
         self.imagePosterView = imagePosterView
     }
     
-    public var body: some View {
+    var body: some View {
         VStack(spacing: 10) {
             imagePosterView
             Text(viewModel.title)
