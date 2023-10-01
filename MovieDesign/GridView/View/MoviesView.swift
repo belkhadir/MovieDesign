@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MoviesView<ViewModel: MoviesDiplayable & ObservableObject>: View {
-    private let moviesviewModel: ViewModel
+    @ObservedObject private var moviesviewModel: ViewModel
     private let imageResourceService: (MovieProviding) -> ImageResourceService
     
     init(moviesviewModel: ViewModel, imageResourceService: @escaping (MovieProviding) -> ImageResourceService) {

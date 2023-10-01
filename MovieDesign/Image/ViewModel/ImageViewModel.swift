@@ -9,13 +9,14 @@ import Foundation
 
 protocol ImageViewDisplayable {
     var imageProvider: ImageProviding? { get }
+    var loadingState: LoadingState { get }
     
     func fetchImage()
 }
 
-
 final class ImageViewModel<ResourceProvider: ImageResourceService>: ObservableObject  {
     @Published private(set) var imageProvider: ImageProviding?
+    @Published private(set) var loadingState: LoadingState = .loaded
     
     private let service: ResourceProvider
     
@@ -27,12 +28,15 @@ final class ImageViewModel<ResourceProvider: ImageResourceService>: ObservableOb
 // MARK: - MoviesDiplayable
 extension ImageViewModel: ImageViewDisplayable {
     func fetchImage() {
-        service.retriveResouce { result in
+        loadingState = .loading
+        service.retriveResouce { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let imageProvider):
                 self.imageProvider = imageProvider
+                loadingState = .loaded
             case .failure:
-                break
+                loadingState = .failed
             }
         }
     }

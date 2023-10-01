@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ImageView<ViewModel: ImageViewDisplayable & ObservableObject>: View {
-    private let viewModel: ViewModel
+    @ObservedObject private var viewModel: ViewModel
 
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
@@ -18,20 +18,30 @@ struct ImageView<ViewModel: ImageViewDisplayable & ObservableObject>: View {
         if let data = viewModel.imageProvider?.data, let uiImage = UIImage(data: data) {
             return Image(uiImage: uiImage)
         } else {
-            return Image(systemName: "exclamationmark.shield")
+            return Image(systemName: "popcorn")
         }
     }
 
     var body: some View {
-        imageFromData
-            .resizable()
-            .frame(width: 150, height: 200)
-            .scaledToFit()
-            .clipped()
-            .cornerRadius(10)
-            .shadow(radius: 5)
-            .onAppear(perform: {
-                viewModel.fetchImage()
-            })
+        Group {
+            switch viewModel.loadingState {
+            case .loading:
+                ShimmerView()
+            case .loaded:
+                imageFromData
+                    .resizable()
+                    .frame(width: 150, height: 200)
+                    .scaledToFit()
+                    .clipped()
+                    .cornerRadius(10)
+                    .shadow(radius: 5)
+            case .failed:
+                Image(systemName: "popcorn")
+                    .frame(width: 150, height: 200)
+            }
+        }
+        .onAppear(perform: {
+            viewModel.fetchImage()
+        })
     }
 }
