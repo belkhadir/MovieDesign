@@ -63,11 +63,11 @@ extension MoviesViewModel: MoviesDiplayable {
 private extension MoviesViewModel {
     @MainActor
     func updateMovies(with movies: [MovieProviding]) {
-        self.moviesPorvider += movies
+        moviesPorvider += movies
     }
 
     @MainActor
     func updateLoadingState(to state: LoadingState) {
-        self.loadingState = state
+        loadingState = state
     }
 }

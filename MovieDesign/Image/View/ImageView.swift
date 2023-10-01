@@ -41,7 +41,9 @@ struct ImageView<ViewModel: ImageViewDisplayable & ObservableObject>: View {
             }
         }
         .onAppear(perform: {
-            viewModel.fetchImage()
+            Task {
+                await viewModel.fetchImage()
+            }
         })
     }
 }

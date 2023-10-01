@@ -11,7 +11,7 @@ protocol ImageViewDisplayable {
     var imageProvider: ImageProviding? { get }
     var loadingState: LoadingState { get }
     
-    func fetchImage()
+    func fetchImage() async
 }
 
 final class ImageViewModel<ResourceProvider: ImageResourceService>: ObservableObject  {
@@ -27,18 +27,34 @@ final class ImageViewModel<ResourceProvider: ImageResourceService>: ObservableOb
 
 // MARK: - MoviesDiplayable
 extension ImageViewModel: ImageViewDisplayable {
-    func fetchImage() {
+    func fetchImage() async {
         guard loadingState != .loading else { return }
-        loadingState = .loading
+        await updateState(state: .loading)
+        
         service.retriveResouce { [weak self] result in
             guard let self else { return }
-            switch result {
-            case .success(let imageProvider):
-                self.imageProvider = imageProvider
-                loadingState = .loaded
-            case .failure:
-                loadingState = .failed
+            Task {
+                switch result {
+                case .success(let imageProvider):
+                    await self.updateImageProvider(with: imageProvider)
+                    await self.updateState(state: .loaded)
+                case .failure:
+                    await self.updateState(state: .failed)
+                }
             }
         }
+    }
+}
+
+// MARK: - Helpers
+private extension ImageViewModel {
+    @MainActor
+    func updateImageProvider(with imageProvider: ImageProviding) {
+        self.imageProvider = imageProvider
+    }
+    
+    @MainActor
+    func updateState(state: LoadingState) {
+        self.loadingState = state
     }
 }
