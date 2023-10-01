@@ -30,7 +30,9 @@ struct MoviesView<ViewModel: MoviesDiplayable & ObservableObject>: View {
                             .aspectRatio(0.75, contentMode: .fit)
                             .onAppear(perform: {
                                 if shouldLoadMore(movie) {
-                                    viewModel.loadMoreMovies()
+                                    Task {
+                                        await viewModel.loadMoreMovies()
+                                    }
                                 }
                             })
                     }
@@ -41,7 +43,9 @@ struct MoviesView<ViewModel: MoviesDiplayable & ObservableObject>: View {
                 }
         }.padding()
         .onAppear(perform: {
-            viewModel.fetchMovies()
+            Task {
+                await viewModel.fetchMovies()
+            }
         })
     }
 }
