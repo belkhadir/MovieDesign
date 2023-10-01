@@ -18,14 +18,14 @@ struct ImageView<ViewModel: ImageViewDisplayable & ObservableObject>: View {
         if let data = viewModel.imageProvider?.data, let uiImage = UIImage(data: data) {
             return Image(uiImage: uiImage)
         } else {
-            return Image(systemName: "popcorn")
+            return Image(systemName: "exclamationmark.icloud")
         }
     }
 
     var body: some View {
         Group {
             switch viewModel.loadingState {
-            case .loading:
+            case .loading, .none:
                 ShimmerView()
             case .loaded:
                 imageFromData

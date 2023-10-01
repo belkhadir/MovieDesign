@@ -6,6 +6,7 @@
 //
 
 enum LoadingState {
+    case none
     case loading
     case loaded
     case failed

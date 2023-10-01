@@ -16,7 +16,7 @@ protocol ImageViewDisplayable {
 
 final class ImageViewModel<ResourceProvider: ImageResourceService>: ObservableObject  {
     @Published private(set) var imageProvider: ImageProviding?
-    @Published private(set) var loadingState: LoadingState = .loaded
+    @Published private(set) var loadingState: LoadingState = .none
     
     private let service: ResourceProvider
     
@@ -28,6 +28,7 @@ final class ImageViewModel<ResourceProvider: ImageResourceService>: ObservableOb
 // MARK: - MoviesDiplayable
 extension ImageViewModel: ImageViewDisplayable {
     func fetchImage() {
+        guard loadingState != .loading else { return }
         loadingState = .loading
         service.retriveResouce { [weak self] result in
             guard let self else { return }
