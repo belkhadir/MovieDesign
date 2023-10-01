@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct MoviesView<ViewModel: MoviesDiplayable & ObservableObject>: View {
-    @ObservedObject private var moviesviewModel: ViewModel
+    @ObservedObject private var viewModel: ViewModel
     private let imageResourceService: (MovieProviding) -> ImageResourceService
     
-    init(moviesviewModel: ViewModel, imageResourceService: @escaping (MovieProviding) -> ImageResourceService) {
-        self.moviesviewModel = moviesviewModel
+    init(viewModel: ViewModel, imageResourceService: @escaping (MovieProviding) -> ImageResourceService) {
+        self.viewModel = viewModel
         self.imageResourceService = imageResourceService
     }
     
@@ -21,7 +21,7 @@ struct MoviesView<ViewModel: MoviesDiplayable & ObservableObject>: View {
             LazyVGrid(
                 columns: Array(repeating: .init(.flexible()), count: 2),
                 spacing: 20) {
-                    ForEach(moviesviewModel.moviesPorvider, id: \.id) { movie in
+                    ForEach(viewModel.moviesPorvider, id: \.id) { movie in
                         AnyView(MoviePosterUIComposition
                             .constructView(
                                 movieProvider: movie, 
@@ -29,15 +29,19 @@ struct MoviesView<ViewModel: MoviesDiplayable & ObservableObject>: View {
                             ))
                             .aspectRatio(0.75, contentMode: .fit)
                             .onAppear(perform: {
-//                                if shouldLoadMore(movie) {
-//                                    moviesviewModel.loadMoreMovies()
-//                                }
+                                if shouldLoadMore(movie) {
+                                    viewModel.loadMoreMovies()
+                                }
                             })
+                    }
+                    if viewModel.loadingState == .loading {
+                        ProgressView()
+                            .frame(height: 50)
                     }
                 }
         }.padding()
         .onAppear(perform: {
-            moviesviewModel.fetchMovies()
+            viewModel.fetchMovies()
         })
     }
 }
@@ -45,7 +49,7 @@ struct MoviesView<ViewModel: MoviesDiplayable & ObservableObject>: View {
 // MARK: - Helpers
 private extension MoviesView {
     func shouldLoadMore(_ movie: MovieProviding) -> Bool {
-        guard let lastMovie = moviesviewModel.moviesPorvider.last else {
+        guard let lastMovie = viewModel.moviesPorvider.last else {
             return false
         }
         return movie.id == lastMovie.id

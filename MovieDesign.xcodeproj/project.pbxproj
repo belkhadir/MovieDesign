@@ -93,7 +93,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4901CB362AC05F9200F3D7FC /* GridView */ = {
+		4901CB362AC05F9200F3D7FC /* MoviesGrid */ = {
 			isa = PBXGroup;
 			children = (
 				490D91332AC8A01600495FB0 /* MovieResourceService.swift */,
@@ -102,7 +102,7 @@
 				490D913B2AC8A9AA00495FB0 /* View */,
 				490D913C2AC8A9B300495FB0 /* ViewModel */,
 			);
-			path = GridView;
+			path = MoviesGrid;
 			sourceTree = "<group>";
 		};
 		4901CB452AC1DB9D00F3D7FC /* Mock */ = {
@@ -159,6 +159,14 @@
 				490D91482AC8AE1500495FB0 /* ImageProviding.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		490D91522AC9B8C800495FB0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				490D91502AC9AD5900495FB0 /* LoadingState.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		499674462ABC8AA500F3EBE6 /* MoviePoster */ = {
@@ -230,8 +238,8 @@
 		49C8F2C02ABB3D9100680ABB /* MovieDesign */ = {
 			isa = PBXGroup;
 			children = (
-				490D91502AC9AD5900495FB0 /* LoadingState.swift */,
-				4901CB362AC05F9200F3D7FC /* GridView */,
+				490D91522AC9B8C800495FB0 /* Shared */,
+				4901CB362AC05F9200F3D7FC /* MoviesGrid */,
 				4999A2952ABF654200C44D56 /* Image */,
 				499674462ABC8AA500F3EBE6 /* MoviePoster */,
 				49C8F2D92ABB78EA00680ABB /* Shimmer */,

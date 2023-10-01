@@ -10,6 +10,6 @@ import SwiftUI
 public final class MoviesdUIComposition {
     public static func construcView(service: some MovieResourceService, imageResourceService: @escaping (MovieProviding) -> ImageResourceService) -> some View {
         let viewModel = MoviesViewModel(service: service)
-        return MoviesView(moviesviewModel: viewModel, imageResourceService: imageResourceService)
+        return MoviesView(viewModel: viewModel, imageResourceService: imageResourceService)
     }
 }
