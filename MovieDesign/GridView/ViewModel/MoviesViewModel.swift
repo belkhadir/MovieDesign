@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MoviesDiplayable {
-    var movies: [MovieProviding] { get }
+    var moviesPorvider: [MovieProviding] { get }
     var loadingState: LoadingState { get }
     
     func fetchMovies()
@@ -16,7 +16,7 @@ protocol MoviesDiplayable {
 }
 
 final class MoviesViewModel<ResourceProvider: MovieResourceService>: ObservableObject  {
-    @Published private(set) var movies: [MovieProviding] = []
+    @Published private(set) var moviesPorvider: [MovieProviding] = []
     @Published private(set) var loadingState: LoadingState = .loading
     
     private var currentPage = 1
@@ -39,7 +39,7 @@ extension MoviesViewModel: MoviesDiplayable {
             case .success(let resource):
                 currentPage = resource.page
                 totalPages = resource.totalPages
-                movies += resource.items
+                moviesPorvider += resource.moviesPorvider
                 loadingState = .loaded
             case .failure:
                 loadingState = .failed

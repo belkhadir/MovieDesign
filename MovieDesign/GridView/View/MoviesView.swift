@@ -21,7 +21,7 @@ struct MoviesView<ViewModel: MoviesDiplayable & ObservableObject>: View {
             LazyVGrid(
                 columns: Array(repeating: .init(.flexible()), count: 2),
                 spacing: 20) {
-                    ForEach(moviesviewModel.movies, id: \.id) { movie in
+                    ForEach(moviesviewModel.moviesPorvider, id: \.id) { movie in
                         AnyView(MoviePosterUIComposition
                             .constructView(
                                 movieProvider: movie, 
@@ -45,7 +45,7 @@ struct MoviesView<ViewModel: MoviesDiplayable & ObservableObject>: View {
 // MARK: - Helpers
 private extension MoviesView {
     func shouldLoadMore(_ movie: MovieProviding) -> Bool {
-        guard let lastMovie = moviesviewModel.movies.last else {
+        guard let lastMovie = moviesviewModel.moviesPorvider.last else {
             return false
         }
         return movie.id == lastMovie.id

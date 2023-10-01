@@ -6,7 +6,7 @@
 //
 
 public protocol MoviesPaginatedProviding {
-    var items: [MovieProviding] { get }
+    var moviesPorvider: [MovieProviding] { get }
     
     var page: Int { get }
     var totalPages: Int { get }
