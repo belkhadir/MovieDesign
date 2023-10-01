@@ -29,9 +29,9 @@ struct MoviesView<ViewModel: MoviesDiplayable & ObservableObject>: View {
                             ))
                             .aspectRatio(0.75, contentMode: .fit)
                             .onAppear(perform: {
-                                if shouldLoadMore(movie) {
-                                    moviesviewModel.loadMoreMovies()
-                                }
+//                                if shouldLoadMore(movie) {
+//                                    moviesviewModel.loadMoreMovies()
+//                                }
                             })
                     }
                 }
