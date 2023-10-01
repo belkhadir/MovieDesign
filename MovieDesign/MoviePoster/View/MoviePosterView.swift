@@ -47,6 +47,7 @@ struct MoviePosterView_Previews: PreviewProvider {
     private struct Movie: MovieProviding {
         var id: Int = 0
         var title: String = "The Matrix"
+        var imagePath: String = "/a.png"
         var releaseDate: Date = Date()
         var voteAverage: Double = 9.5
         var voteCount: Int = 5000

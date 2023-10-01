@@ -10,6 +10,7 @@ import Foundation
 public protocol MovieProviding {
     var id: Int { get }
     var title: String { get }
+    var imagePath: String { get }
     var releaseDate: Date { get }
     var voteAverage: Double { get }
     var voteCount: Int { get }
