@@ -32,7 +32,7 @@ final class MoviesViewModel<ResourceProvider: MovieResourceService>: ObservableO
 extension MoviesViewModel: MoviesDiplayable {
     func fetchMovies() async {
         guard loadingState != .loading else { return }
-        loadingState = .loading
+        await updateLoadingState(to: .loading)
         
         let page = await paginationManager.currentPage()
         service.retrieveResource(page: page) { [weak self] result in
@@ -41,10 +41,10 @@ extension MoviesViewModel: MoviesDiplayable {
                 switch result {
                 case .success(let resource):
                     await self.paginationManager.setTotalPages(resource.totalPages)
-                    self.moviesPorvider += resource.moviesPorvider
-                    self.loadingState = .loaded
+                    await self.updateMovies(with: resource.moviesPorvider)
+                    await self.updateLoadingState(to: .loaded)
                 case .failure:
-                    self.loadingState = .failed
+                    await self.updateLoadingState(to: .failed)
                 }
             }
         }
@@ -56,5 +56,18 @@ extension MoviesViewModel: MoviesDiplayable {
             await paginationManager.incrementPage()
             await fetchMovies()
         }
+    }
+}
+
+// MARK: - Helpers
+private extension MoviesViewModel {
+    @MainActor
+    func updateMovies(with movies: [MovieProviding]) {
+        self.moviesPorvider += movies
+    }
+
+    @MainActor
+    func updateLoadingState(to state: LoadingState) {
+        self.loadingState = state
     }
 }
