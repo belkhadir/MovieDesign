@@ -26,7 +26,7 @@ public final class MoviesPaginationCache {
     
     /// Initializes a new instance of MoviesPaginationCache
         /// - Parameter defaultPaginationManager: A manager to handle pagination logic, which will be used for all movie discovery categories.
-    init(paginationManager: PaginationManaging) {
+    public init(paginationManager: PaginationManaging) {
         for movieDiscovery in MovieDiscovery.allCases {
             pageCaching[movieDiscovery] = (paginationManager, false)
         }
