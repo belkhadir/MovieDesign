@@ -36,14 +36,20 @@ struct ImageView<ViewModel: ImageViewDisplayable & ObservableObject>: View {
                     .cornerRadius(10)
                     .shadow(radius: 5)
             case .failed:
-                Image(systemName: "popcorn")
-                    .frame(width: 150, height: 200)
+                VStack(spacing: 10) {
+                    Image(systemName: "xmark.octagon")
+                        .frame(width: 150, height: 200)
+                    Button("Retry") {
+                        Task {
+                            await viewModel.fetchImage()
+                        }
+                    }
+                    .buttonStyle(.bordered)
+                }
             }
         }
-        .onAppear(perform: {
-            Task {
-                await viewModel.fetchImage()
-            }
-        })
+        .task {
+            await viewModel.fetchImage()
+        }
     }
 }

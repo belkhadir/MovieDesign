@@ -8,5 +8,5 @@
 public protocol MovieResourceService {
     typealias Result = Swift.Result<MoviesPaginatedProviding, Error>
     
-    func retrieveResource(page: Int, completion: @escaping (Result) -> Void)
+    func retrieveResource(movieDiscovery: MovieDiscovery, page: Int, completion: @escaping (Result) -> Void)
 }

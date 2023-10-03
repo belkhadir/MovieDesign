@@ -8,7 +8,10 @@
 import SwiftUI
 
 public final class MoviePosterUIComposition {
-    public static func constructView(movieProvider: MovieProviding, imageResourceService: some ImageResourceService) -> some View {
+    public static func constructView(
+        movieProvider: MovieProviding,
+        imageResourceService: some ImageResourceService
+    ) -> some View {
         let moviePosterViewModel = MoviePosterViewModel(movieProvider: movieProvider)
         let imageViewModel = ImageViewModel(service: imageResourceService)
         let imageView = ImageView(viewModel: imageViewModel)
