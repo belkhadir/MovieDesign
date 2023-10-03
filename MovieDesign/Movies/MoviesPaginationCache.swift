@@ -21,7 +21,7 @@ public protocol MoviesPaginationCaching {
     func isPageLoaded(for category: MovieDiscovery) -> Bool
 }
 
-final class MoviesPaginationCache {
+public final class MoviesPaginationCache {
     private var pageCaching: [MovieDiscovery: (paginationManager: PaginationManaging, pageAlreadyLoaded: Bool)] = [:]
     
     /// Initializes a new instance of MoviesPaginationCache
@@ -35,15 +35,15 @@ final class MoviesPaginationCache {
 
 // MARK: - MoviesPaginationCaching
 extension MoviesPaginationCache: MoviesPaginationCaching {
-    func getPaginationManager(for category: MovieDiscovery) -> PaginationManaging? {
+    public func getPaginationManager(for category: MovieDiscovery) -> PaginationManaging? {
         return pageCaching[category]?.paginationManager
     }
     
-    func markPageAsLoaded(for category: MovieDiscovery) {
+    public func markPageAsLoaded(for category: MovieDiscovery) {
         pageCaching[category]?.pageAlreadyLoaded = true
     }
     
-    func isPageLoaded(for category: MovieDiscovery) -> Bool {
+    public func isPageLoaded(for category: MovieDiscovery) -> Bool {
         return pageCaching[category]?.pageAlreadyLoaded ?? false
     }
 }
