@@ -31,7 +31,7 @@ struct MoviesView<ViewModel: MoviesDisplaying & ObservableObject>: View {
                 viewModel: movieDiscoveryViewModel,
                 selectedItem: { selectedIndex in
                     Task {
-                        await viewModel.refreshMovies()
+                        await viewModel.selectMovieCategory(at: selectedIndex)
                     }
                 }
             )

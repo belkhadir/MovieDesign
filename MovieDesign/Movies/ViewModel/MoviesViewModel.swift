@@ -14,7 +14,7 @@ protocol MoviesDisplaying {
     
     func refreshMovies() async
     func fetchMoreMovies() async
-//    func selectMovieCategory(at index: Int) async
+    func selectMovieCategory(at index: Int) async
 }
 
 final class MoviesViewModel<Service: MovieResourceService>: ObservableObject  {
