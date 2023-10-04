@@ -8,21 +8,22 @@
 import Foundation
 
 protocol MoviesDisplaying {
-    var moviesProvider: [MovieProviding] { get }
+    var moviesProvider: [MovieDiscovery: [MovieProviding]] { get }
     var loadingState: LoadingState { get }
+    var movieDiscovery: MovieDiscovery { get }
     
     func refreshMovies() async
     func fetchMoreMovies() async
-    func selectMovieCategory(at index: Int) async
+//    func selectMovieCategory(at index: Int) async
 }
 
 final class MoviesViewModel<Service: MovieResourceService>: ObservableObject  {
-    @Published private(set) var moviesProvider: [MovieProviding] = []
+    @Published private(set) var moviesProvider: [MovieDiscovery: [MovieProviding]] = [:]
     @Published private(set) var loadingState: LoadingState = .none
+    @Published private(set) var movieDiscovery: MovieDiscovery = .popular
     
     private let service: Service
     private let cache: MoviesPaginationCaching
-    private var movieDiscovery: MovieDiscovery = .popular
     
     init(service: Service, cache: MoviesPaginationCaching) {
         self.service = service
@@ -37,54 +38,69 @@ extension MoviesViewModel: MoviesDisplaying {
     }
     
     func fetchMoreMovies() async {
-        guard loadingState != .loading, let paginationManager = cache.getPaginationManager(for: movieDiscovery) else {
-            return
-        }
-
-        guard await paginationManager.canLoadMore(), !cache.isPageLoaded(for: movieDiscovery) else {
-            return
-        }
-
-        await paginationManager.incrementPage()
+        guard await canLoadMoreMovies() else { return }
         await loadMovies()
     }
     
     func selectMovieCategory(at index: Int) async {
         movieDiscovery = MovieDiscovery(rawValue: index) ?? .popular
-        moviesProvider.removeAll()
         await loadMovies()
     }
 }
 
 // MARK: - Private Helpers
 private extension MoviesViewModel {
-    func loadMovies() async {
-        guard loadingState != .loading, let paginationManager = cache.getPaginationManager(for: movieDiscovery) else {
-            return
-        }
+    func canLoadMoreMovies() async -> Bool {
+        guard loadingState != .loading,
+              let paginationManager = cache.getPaginationManager(for: movieDiscovery),
+              await paginationManager.canLoadMore(),
+              !cache.isPageLoaded(for: movieDiscovery)
+        else { return false }
         
+        await paginationManager.incrementPage()
+        return true
+    }
+    
+    func loadMovies() async {
         await updateLoadingState(to: .loading)
         
-        let currentPage = await paginationManager.currentPage()
+        let currentPage = await cache.getPaginationManager(for: movieDiscovery)?.currentPage() ?? 1
         service.retrieveResource(movieDiscovery: movieDiscovery, page: currentPage) { [weak self] result in
             guard let self = self else { return }
             Task {
-                switch result {
-                case .success(let resource):
-                    await paginationManager.setTotalPages(resource.totalPages)
-                    await self.appendMovies(resource.moviesProvider)
-                    await self.updateLoadingState(to: .loaded)
-                case .failure:
-                    await self.updateLoadingState(to: .failed)
-                }
-                self.cache.markPageAsLoaded(for: self.movieDiscovery)
+                await self.handleServiceResult(result)
             }
         }
     }
     
+    func handleServiceResult(_ result: Result<MoviesPaginatedProviding, Error>) async {
+        // Replace `ResourceType` with the actual type returned in the service call.
+        switch result {
+        case .success(let resource):
+            if let paginationManager = cache.getPaginationManager(for: movieDiscovery) {
+                await paginationManager.setTotalPages(resource.totalPages)
+            }
+            await appendMovies(for: movieDiscovery, with: resource.moviesProvider)
+            await updateLoadingState(to: .loaded)
+        case .failure(let error):
+            await handleServiceError(error)
+        }
+        cache.markPageAsLoaded(for: movieDiscovery)
+    }
+    
+    func handleServiceError(_ error: Error) async {
+        // Implement specific error handling here.
+        await updateLoadingState(to: .failed)
+    }
+    
     @MainActor
-    func appendMovies(_ movies: [MovieProviding]) {
-        moviesProvider += movies
+    func appendMovies(for discovery: MovieDiscovery, with movies: [MovieProviding]) {
+        if var existingMovies = moviesProvider[discovery] {
+            existingMovies += movies
+            moviesProvider[discovery] = existingMovies
+        } else {
+            moviesProvider[discovery] = movies
+        }
     }
 
     @MainActor
@@ -92,3 +108,4 @@ private extension MoviesViewModel {
         loadingState = state
     }
 }
+

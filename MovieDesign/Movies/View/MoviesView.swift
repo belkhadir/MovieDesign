@@ -31,7 +31,7 @@ struct MoviesView<ViewModel: MoviesDisplaying & ObservableObject>: View {
                 viewModel: movieDiscoveryViewModel,
                 selectedItem: { selectedIndex in
                     Task {
-                        await viewModel.selectMovieCategory(at: selectedIndex)
+                        await viewModel.refreshMovies()
                     }
                 }
             )
@@ -40,22 +40,26 @@ struct MoviesView<ViewModel: MoviesDisplaying & ObservableObject>: View {
                     columns: Array(repeating: .init(.flexible()), count: 2),
                     spacing: 20
                 ) {
-                    ForEach(viewModel.moviesProvider, id: \.id) { movie in
-                        moviePoster(for: movie)
-                            .onTapGesture {
-                                selectedMovie(movie)
-                            }
-                            .onAppear {
-                                if movie.id == viewModel.moviesProvider.last?.id {
-                                    Task {
-                                        await viewModel.fetchMoreMovies()
+                    if let movies = viewModel.moviesProvider[viewModel.movieDiscovery] {
+                        ForEach(movies, id: \.id) { movie in
+                            moviePoster(for: movie)
+                                .onTapGesture {
+                                    selectedMovie(movie)
+                                }
+                                .onAppear {
+                                    if movie.id == movies.last?.id {
+                                        Task {
+                                            await viewModel.fetchMoreMovies()
+                                        }
                                     }
                                 }
-                            }
-                    }
-                    if viewModel.loadingState == .loading {
-                        ProgressView()
-                            .frame(height: 50)
+                        }
+                        if viewModel.loadingState == .loading {
+                            ProgressView()
+                                .frame(height: 50)
+                        }
+                    } else {
+                        Text("No movies to display")
                     }
                 }
                 .padding()
