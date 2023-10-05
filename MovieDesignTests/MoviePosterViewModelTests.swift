@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import MovieDesign
+@testable import MovieDesign
 
 final class MoviePosterViewModelTests: XCTestCase {
 
@@ -42,7 +42,8 @@ private extension MoviePosterViewModelTests {
     ) -> MoviePosterViewModel {
         let movieProvider = MockMovieProvider(
             id: 1,
-            title: title,
+            title: title, 
+            imagePath: "",
             releaseDate: releaseDate,
             voteAverage: voteAverage,
             voteCount: voteCount

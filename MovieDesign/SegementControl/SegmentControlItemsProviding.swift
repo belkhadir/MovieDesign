@@ -5,6 +5,6 @@
 //  Created by Belkhadir Anas on 2/10/2023.
 //
 
-protocol SegmentControlDisplayable {
+protocol SegmentControlItemsProviding {
     var items: [String] { get }
 }

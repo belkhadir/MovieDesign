@@ -4,9 +4,6 @@
     "" : {
 
     },
-    "No movies to display" : {
-
-    },
     "popular" : {
       "extractionState" : "manual",
       "localizations" : {

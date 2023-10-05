@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct SegmentControlView: View {
-    private let viewModel: SegmentControlDisplayable
+    private let viewModel: SegmentControlItemsProviding
     private let selectedItem: (Int) -> Void
     
     @State private var selectedSegment = 0
     
-    init(viewModel: SegmentControlDisplayable, selectedItem: @escaping (Int) -> Void) {
+    init(viewModel: SegmentControlItemsProviding, selectedItem: @escaping (Int) -> Void) {
         self.viewModel = viewModel
         self.selectedItem = selectedItem
     }
