@@ -33,6 +33,7 @@
 		490D91862ACF0DFF00495FB0 /* MoviesDiscoveryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D91852ACF0DFF00495FB0 /* MoviesDiscoveryDelegate.swift */; };
 		490D91882ACF117A00495FB0 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D91872ACF117A00495FB0 /* DependencyContainer.swift */; };
 		490D918C2ACF16C200495FB0 /* MoviesDiscoveryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D918B2ACF16C200495FB0 /* MoviesDiscoveryViewModelTests.swift */; };
+		49378A1F2BDD27220045B9DE /* MoviesDiscoveryUIComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49378A1E2BDD27220045B9DE /* MoviesDiscoveryUIComposition.swift */; };
 		4965D4AA2AC3542B006D2D37 /* MoviePosterComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965D4A92AC3542B006D2D37 /* MoviePosterComposition.swift */; };
 		498CE8CF2ACF434700309701 /* MoviesDiscoveryDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498CE8CE2ACF434700309701 /* MoviesDiscoveryDelegateMock.swift */; };
 		498CE8D12ACF50FD00309701 /* MoviesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498CE8D02ACF50FD00309701 /* MoviesViewModelTests.swift */; };
@@ -101,6 +102,7 @@
 		490D91852ACF0DFF00495FB0 /* MoviesDiscoveryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDiscoveryDelegate.swift; sourceTree = "<group>"; };
 		490D91872ACF117A00495FB0 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		490D918B2ACF16C200495FB0 /* MoviesDiscoveryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDiscoveryViewModelTests.swift; sourceTree = "<group>"; };
+		49378A1E2BDD27220045B9DE /* MoviesDiscoveryUIComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDiscoveryUIComposition.swift; sourceTree = "<group>"; };
 		4965D4A92AC3542B006D2D37 /* MoviePosterComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterComposition.swift; sourceTree = "<group>"; };
 		498CE8CE2ACF434700309701 /* MoviesDiscoveryDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDiscoveryDelegateMock.swift; sourceTree = "<group>"; };
 		498CE8D02ACF50FD00309701 /* MoviesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModelTests.swift; sourceTree = "<group>"; };
@@ -145,8 +147,9 @@
 				490D91872ACF117A00495FB0 /* DependencyContainer.swift */,
 				490D91332AC8A01600495FB0 /* MovieResourceService.swift */,
 				490D91852ACF0DFF00495FB0 /* MoviesDiscoveryDelegate.swift */,
-				490D91392AC8A89D00495FB0 /* MoviesUIComposition.swift */,
+				49378A1E2BDD27220045B9DE /* MoviesDiscoveryUIComposition.swift */,
 				490D917F2ACC4CCD00495FB0 /* MoviesPaginationCache.swift */,
+				490D91392AC8A89D00495FB0 /* MoviesUIComposition.swift */,
 				490D913D2AC8A9C400495FB0 /* Model */,
 				490D913B2AC8A9AA00495FB0 /* View */,
 				490D913C2AC8A9B300495FB0 /* ViewModel */,
@@ -248,6 +251,14 @@
 			path = SegementControl;
 			sourceTree = "<group>";
 		};
+		49378A1D2BDD207B0045B9DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4901CB3F2AC09AD600F3D7FC /* MovieProviding.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		498CE8D62ACF59F600309701 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,7 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				4965D4A92AC3542B006D2D37 /* MoviePosterComposition.swift */,
-				4901CB3F2AC09AD600F3D7FC /* MovieProviding.swift */,
+				49378A1D2BDD207B0045B9DE /* Model */,
 				4999A2942ABF653A00C44D56 /* View */,
 				4999A2972ABF656D00C44D56 /* ViewModel */,
 			);
@@ -406,7 +417,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					49C8F2A02ABB364A00680ABB = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -463,6 +474,7 @@
 			files = (
 				490D91882ACF117A00495FB0 /* DependencyContainer.swift in Sources */,
 				490D91442AC8AB0C00495FB0 /* ImageViewModel.swift in Sources */,
+				49378A1F2BDD27220045B9DE /* MoviesDiscoveryUIComposition.swift in Sources */,
 				490D91762ACAFEDC00495FB0 /* Localizable.swift in Sources */,
 				490D916C2ACAF66B00495FB0 /* MovieDiscovery.swift in Sources */,
 				490D916A2ACAEAAE00495FB0 /* SegmentControlView.swift in Sources */,
@@ -526,6 +538,7 @@
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -593,6 +606,7 @@
 			buildSettings = {
 				ALLOW_TARGET_PLATFORM_SPECIALIZATION = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

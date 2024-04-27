@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MoviesDiscoveryView<ViewModel: ObservableObject & MoviesDiscoveryDisplayable & SegmentControlItemsProviding>: View {
+struct MoviesDiscoveryView<ViewModel: MoviesDiscoveryDisplayable & SegmentControlItemsProviding>: View {
     private let viewModel: ViewModel
     private let dependencies: DependencyContainer
     

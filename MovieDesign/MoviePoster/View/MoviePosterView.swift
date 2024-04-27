@@ -38,18 +38,18 @@ struct MoviePosterView<Content: View>: View {
     }
 }
 
-struct MoviePosterView_Previews: PreviewProvider {
-    static var previews: some View {
-        let viewModel = MoviePosterViewModel(movieProvider: Movie())
-        MoviePosterView(viewModel: viewModel, imagePosterView: ShimmerView())
-    }
-    
-    private struct Movie: MovieProviding {
-        var id: Int = 0
-        var title: String = "The Matrix"
-        var imagePath: String = "/a.png"
-        var releaseDate: Date = Date()
-        var voteAverage: Double = 9.5
-        var voteCount: Int = 5000
-    }
+#Preview {
+    let viewModel = MoviePosterViewModel(movieProvider: Movie())
+    return MoviePosterView(viewModel: viewModel, imagePosterView: ShimmerView())
 }
+
+#if DEBUG
+private struct Movie: MovieProviding {
+    var id: Int = 0
+    var title: String = "The Matrix"
+    var imagePath: String = "/a.png"
+    var releaseDate: Date = Date()
+    var voteAverage: Double = 9.5
+    var voteCount: Int = 5000
+}
+#endif
