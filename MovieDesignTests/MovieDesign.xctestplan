@@ -19,7 +19,7 @@
       ]
     },
     "testExecutionOrdering" : "random",
-    "testRepetitionMode" : "retryOnFailure"
+    "testRepetitionMode" : "untilFailure"
   },
   "testTargets" : [
     {

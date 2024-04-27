@@ -40,6 +40,8 @@ private extension MoviesDiscoveryViewModelTests {
         let sut = MoviesDiscoveryViewModel() 
         let delegate = MoviesDiscoveryDelegateMock()
         sut.delegate = delegate
+        trackForMemoryLeaks(sut)
+        trackForMemoryLeaks(delegate)
         return (sut, delegate)
     }
     

@@ -8,7 +8,7 @@
 import Foundation
 @testable import MovieDesign
 
-class MoviesDiscoveryDelegateMock: MoviesDiscoveryDelegate {
+final class MoviesDiscoveryDelegateMock: MoviesDiscoveryDelegate {
     var lastSelectedCategory: MovieDiscovery?
     
     func didSelectCategory(_ category: MovieDiscovery) {

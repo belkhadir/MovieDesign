@@ -35,6 +35,12 @@
 		490D918C2ACF16C200495FB0 /* MoviesDiscoveryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D918B2ACF16C200495FB0 /* MoviesDiscoveryViewModelTests.swift */; };
 		4965D4AA2AC3542B006D2D37 /* MoviePosterComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4965D4A92AC3542B006D2D37 /* MoviePosterComposition.swift */; };
 		498CE8CF2ACF434700309701 /* MoviesDiscoveryDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498CE8CE2ACF434700309701 /* MoviesDiscoveryDelegateMock.swift */; };
+		498CE8D12ACF50FD00309701 /* MoviesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498CE8D02ACF50FD00309701 /* MoviesViewModelTests.swift */; };
+		498CE8D32ACF51FE00309701 /* MovieResourceServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498CE8D22ACF51FE00309701 /* MovieResourceServiceMock.swift */; };
+		498CE8D52ACF53ED00309701 /* ImageResourceServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498CE8D42ACF53ED00309701 /* ImageResourceServiceMock.swift */; };
+		498CE8D82ACF5A0600309701 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498CE8D72ACF5A0600309701 /* XCTestCase+MemoryLeakTracking.swift */; };
+		498CE8DA2ACF614200309701 /* PaginationManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498CE8D92ACF614200309701 /* PaginationManagerMock.swift */; };
+		498CE8DC2AD445A200309701 /* MoviesPaginatedProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498CE8DB2AD445A200309701 /* MoviesPaginatedProviderMock.swift */; };
 		499674452ABC817200F3EBE6 /* MoviePosterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499674442ABC817200F3EBE6 /* MoviePosterViewModel.swift */; };
 		499674482ABC8B8C00F3EBE6 /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499674472ABC8B8C00F3EBE6 /* MoviesView.swift */; };
 		4999A2992ABF679700C44D56 /* MoviePosterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4999A2982ABF679700C44D56 /* MoviePosterViewModelTests.swift */; };
@@ -97,6 +103,12 @@
 		490D918B2ACF16C200495FB0 /* MoviesDiscoveryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDiscoveryViewModelTests.swift; sourceTree = "<group>"; };
 		4965D4A92AC3542B006D2D37 /* MoviePosterComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterComposition.swift; sourceTree = "<group>"; };
 		498CE8CE2ACF434700309701 /* MoviesDiscoveryDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDiscoveryDelegateMock.swift; sourceTree = "<group>"; };
+		498CE8D02ACF50FD00309701 /* MoviesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModelTests.swift; sourceTree = "<group>"; };
+		498CE8D22ACF51FE00309701 /* MovieResourceServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResourceServiceMock.swift; sourceTree = "<group>"; };
+		498CE8D42ACF53ED00309701 /* ImageResourceServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResourceServiceMock.swift; sourceTree = "<group>"; };
+		498CE8D72ACF5A0600309701 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
+		498CE8D92ACF614200309701 /* PaginationManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationManagerMock.swift; sourceTree = "<group>"; };
+		498CE8DB2AD445A200309701 /* MoviesPaginatedProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPaginatedProviderMock.swift; sourceTree = "<group>"; };
 		499674442ABC817200F3EBE6 /* MoviePosterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterViewModel.swift; sourceTree = "<group>"; };
 		499674472ABC8B8C00F3EBE6 /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
 		4999A2982ABF679700C44D56 /* MoviePosterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterViewModelTests.swift; sourceTree = "<group>"; };
@@ -145,8 +157,12 @@
 		4901CB452AC1DB9D00F3D7FC /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				498CE8D42ACF53ED00309701 /* ImageResourceServiceMock.swift */,
 				4901CB462AC1DBAA00F3D7FC /* MockMovieProvider.swift */,
+				498CE8D22ACF51FE00309701 /* MovieResourceServiceMock.swift */,
 				498CE8CE2ACF434700309701 /* MoviesDiscoveryDelegateMock.swift */,
+				498CE8DB2AD445A200309701 /* MoviesPaginatedProviderMock.swift */,
+				498CE8D92ACF614200309701 /* PaginationManagerMock.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -232,6 +248,14 @@
 			path = SegementControl;
 			sourceTree = "<group>";
 		};
+		498CE8D62ACF59F600309701 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				498CE8D72ACF5A0600309701 /* XCTestCase+MemoryLeakTracking.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		499674462ABC8AA500F3EBE6 /* MoviePoster */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,7 +317,9 @@
 			children = (
 				4999A2982ABF679700C44D56 /* MoviePosterViewModelTests.swift */,
 				490D918B2ACF16C200495FB0 /* MoviesDiscoveryViewModelTests.swift */,
+				498CE8D02ACF50FD00309701 /* MoviesViewModelTests.swift */,
 				49C8F2C72ABB3E7800680ABB /* MovieDesign.xctestplan */,
+				498CE8D62ACF59F600309701 /* Helpers */,
 				4901CB452AC1DB9D00F3D7FC /* Mock */,
 			);
 			path = MovieDesignTests;
@@ -471,7 +497,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				498CE8D32ACF51FE00309701 /* MovieResourceServiceMock.swift in Sources */,
+				498CE8D82ACF5A0600309701 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
+				498CE8D12ACF50FD00309701 /* MoviesViewModelTests.swift in Sources */,
+				498CE8DC2AD445A200309701 /* MoviesPaginatedProviderMock.swift in Sources */,
+				498CE8DA2ACF614200309701 /* PaginationManagerMock.swift in Sources */,
 				4999A2992ABF679700C44D56 /* MoviePosterViewModelTests.swift in Sources */,
+				498CE8D52ACF53ED00309701 /* ImageResourceServiceMock.swift in Sources */,
 				490D918C2ACF16C200495FB0 /* MoviesDiscoveryViewModelTests.swift in Sources */,
 				498CE8CF2ACF434700309701 /* MoviesDiscoveryDelegateMock.swift in Sources */,
 				4901CB472AC1DBAA00F3D7FC /* MockMovieProvider.swift in Sources */,

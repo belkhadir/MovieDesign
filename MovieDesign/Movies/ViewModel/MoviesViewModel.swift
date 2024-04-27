@@ -58,6 +58,7 @@ extension MoviesViewModel: MoviesDisplayable {
     func loadMoreMovies() async {
         guard let cache else { return }
         await cache.incrementPage()
+        guard await cache.canLoadMore() else { return }
         await fetchMovies()
     }
 }
