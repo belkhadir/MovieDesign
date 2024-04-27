@@ -15,10 +15,21 @@ struct ImageView<ViewModel: ImageViewDisplayable & ObservableObject>: View {
     }
 
     private var imageFromData: Image {
-        if let data = viewModel.imageProvider?.data, let uiImage = UIImage(data: data) {
+        let fallBackImage = Image(systemName: "exclamationmark.icloud")
+        if let data = viewModel.imageProvider?.data {
+            #if os(iOS)
+            guard let uiImage = UIImage(data: data) else {
+                return fallBackImage
+            }
             return Image(uiImage: uiImage)
+            #elseif os(macOS)
+            guard let nsImage = NSImage(data: data) else {
+                return fallBackImage
+            }
+            return Image(nsImage: nsImage)
+            #endif
         } else {
-            return Image(systemName: "exclamationmark.icloud")
+            return fallBackImage
         }
     }
 
