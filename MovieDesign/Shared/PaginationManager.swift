@@ -26,7 +26,7 @@ extension PaginationManager: PaginationManaging {
     }
     
     public func canLoadMore() async -> Bool {
-        return _currentPage < _totalPages
+        return _currentPage <= _totalPages
     }
 
     public func incrementPage() async {
