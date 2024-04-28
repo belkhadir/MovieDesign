@@ -38,12 +38,12 @@ struct MoviePosterView<Content: View>: View {
     }
 }
 
+#if DEBUG
 #Preview {
     let viewModel = MoviePosterViewModel(movieProvider: Movie())
     return MoviePosterView(viewModel: viewModel, imagePosterView: ShimmerView())
 }
 
-#if DEBUG
 private struct Movie: MovieProviding {
     var id: Int = 0
     var title: String = "The Matrix"
