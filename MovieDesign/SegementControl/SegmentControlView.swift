@@ -34,10 +34,8 @@ struct SegmentControlView: View {
     }
 }
 
-struct SegementControlView_Previews: PreviewProvider {
-    static var previews: some View {
-        SegmentControlView(viewModel: MoviesDiscoveryViewModel(), selectedItem: {
-            print("Index \($0)")
-        })
-    }
+#Preview {
+    SegmentControlView(viewModel: MoviesDiscoveryViewModel(), selectedItem: {
+        print("Index \($0)")
+    })
 }

@@ -11,7 +11,7 @@ import XCTest
 final class MoviesDiscoveryViewModelTests: XCTestCase {
     func testGivenValidIndex_WhenSegmentIsSelected_ThenDelegateIsCalledWithCorrectCategory() {
         let (sut, delegate) = makeSUT()
-        sut.selectedSegement(at: 0)
+        sut.selectedSegment(at: 0)
         
         XCTAssertEqual(delegate.lastSelectedCategory, .popular, "Expected to select the popular category, but got \(String(describing: delegate.lastSelectedCategory))")
     }
@@ -19,7 +19,7 @@ final class MoviesDiscoveryViewModelTests: XCTestCase {
     func testGivenInvalidValidIndex_WhenSegmentIsSelected_ThenDelegateIsNotCalled() {
         let (sut, delegate) = makeSUT()
         let invalidIndex = 5
-        sut.selectedSegement(at: invalidIndex)
+        sut.selectedSegment(at: invalidIndex)
         
         XCTAssertNil(delegate.lastSelectedCategory, "Expected a nil value because")
     }

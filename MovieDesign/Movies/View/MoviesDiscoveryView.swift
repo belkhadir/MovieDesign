@@ -20,7 +20,7 @@ struct MoviesDiscoveryView<ViewModel: MoviesDiscoveryDisplayable & SegmentContro
         VStack(spacing: 20) {
             SegmentControlView(
                 viewModel: viewModel) { selectedIndex in
-                    viewModel.selectedSegement(at: selectedIndex)
+                    viewModel.selectedSegment(at: selectedIndex)
                 }
             MoviesUIComposition.construcView(dependencies: dependencies)
         }

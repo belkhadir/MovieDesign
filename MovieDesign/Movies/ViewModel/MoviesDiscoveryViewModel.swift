@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MoviesDiscoveryDisplayable {
-    func selectedSegement(at index: Int)
+    func selectedSegment(at index: Int)
 }
 
 final class MoviesDiscoveryViewModel {
@@ -24,7 +24,7 @@ extension MoviesDiscoveryViewModel: SegmentControlItemsProviding {
 
 // MARK: - MoviesDiscoveryDisplayable
 extension MoviesDiscoveryViewModel: MoviesDiscoveryDisplayable {
-    func selectedSegement(at index: Int) {
+    func selectedSegment(at index: Int) {
         guard let movieDiscovery = MovieDiscovery(rawValue: index) else { return }
         delegate?.didSelectCategory(movieDiscovery)
     }
@@ -38,7 +38,7 @@ private extension MoviesDiscoveryViewModel {
         }
         
         case popular = "popular"
-        case companyDetails = "top_rated"
+        case topRated = "top_rated"
         case upcoming = "upcoming"
     }
 }
