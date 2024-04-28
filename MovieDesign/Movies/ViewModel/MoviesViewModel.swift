@@ -40,18 +40,15 @@ extension MoviesViewModel: MoviesDisplayable {
 
         await updateLoadingState(to: .loading)
         let currentPage = await cache.currentPage()
-        service.retrieveResource(movieDiscovery: movieDiscovery, page: currentPage) { [weak self] result in
-            guard let self = self else { return }
-            Task {
-                switch result {
-                case .success(let resource):
-                    await cache.setTotalPages(resource.totalPages)
-                    await self.appendMovies(resource.moviesProvider)
-                    await self.updateLoadingState(to: .loaded)
-                case .failure:
-                    await self.updateLoadingState(to: .failed)
-                }
-            }
+
+        do {
+            let resource = try await service.retrieveResource(movieDiscovery: movieDiscovery, page: currentPage)
+            await cache.setTotalPages(resource.totalPages)
+            await appendMovies(resource.moviesProvider)
+            await updateLoadingState(to: .loaded)
+        } catch {
+            await updateLoadingState(to: .failed)
+            print("Failed to fetch movies: \(error)")
         }
     }
     
