@@ -30,7 +30,7 @@ extension PaginationManager: PaginationManaging {
     }
 
     public func incrementPage() async {
-        if _currentPage <= _totalPages {
+        if _currentPage < _totalPages {
             _currentPage += 1
         }
     }

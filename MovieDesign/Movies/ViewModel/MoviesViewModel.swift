@@ -20,30 +20,33 @@ final class MoviesViewModel: ObservableObject  {
     @Published private(set) var loadingState: LoadingState = .none
     
     private let service: MovieResourceService
-    private var movieDiscovery: MovieDiscovery = .popular // AS default Category
-    private let cache: PaginationManaging?
+    private let movieDiscovery: MovieDiscovery
+    private let paginationManager: PaginationManaging
     
     init(dependencies: DependencyContainer) {
         self.service = dependencies.movieService
-        self.cache = dependencies.movieCache.getPaginationManager(for: movieDiscovery)
+        self.movieDiscovery = dependencies.movieDiscovery
+        self.paginationManager = dependencies.paginationManager
     }
 }
 
 // MARK: - MoviesDisplaying
 extension MoviesViewModel: MoviesDisplayable {
     func fetchMovies() async {
-        guard loadingState != .loading,
-              let cache,
-              await cache.canLoadMore() else {
+        guard loadingState != .loading else {
             return
         }
 
         await updateLoadingState(to: .loading)
-        let currentPage = await cache.currentPage()
 
         do {
-            let resource = try await service.retrieveResource(movieDiscovery: movieDiscovery, page: currentPage)
-            await cache.setTotalPages(resource.totalPages)
+            await paginationManager.incrementPage()
+            
+            let resource = try await service.retrieveResource(
+                movieDiscovery: movieDiscovery,
+                page: paginationManager.currentPage()
+            )
+            await paginationManager.setTotalPages(resource.totalPages)
             await appendMovies(resource.moviesProvider)
             await updateLoadingState(to: .loaded)
         } catch {
@@ -53,19 +56,11 @@ extension MoviesViewModel: MoviesDisplayable {
     }
     
     func loadMoreMovies() async {
-        guard let cache else { return }
-        await cache.incrementPage()
-        guard await cache.canLoadMore() else { return }
+        guard await paginationManager.canLoadMore() else { return }
         await fetchMovies()
     }
 }
 
-// MARK: - MoviesDiscoveryDelegate
-extension MoviesViewModel: MoviesDiscoveryDelegate {
-    func didSelectCategory(_ category: MovieDiscovery) {
-        movieDiscovery = category
-    }
-}
 
 // MARK: - Private Helpers
 private extension MoviesViewModel {

@@ -27,7 +27,6 @@
 		490D917A2ACAFF5600495FB0 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D91792ACAFF5600495FB0 /* String+Extension.swift */; };
 		490D917C2ACAFFE300495FB0 /* BundleIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D917B2ACAFFE300495FB0 /* BundleIdentifier.swift */; };
 		490D917E2ACB0C8100495FB0 /* SegmentControlItemsProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D917D2ACB0C8100495FB0 /* SegmentControlItemsProviding.swift */; };
-		490D91802ACC4CCD00495FB0 /* MoviesPaginationCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D917F2ACC4CCD00495FB0 /* MoviesPaginationCache.swift */; };
 		490D91822ACC5C4400495FB0 /* PaginationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D91812ACC5C4400495FB0 /* PaginationManager.swift */; };
 		490D91842ACEF8AD00495FB0 /* MoviesDiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D91832ACEF8AD00495FB0 /* MoviesDiscoveryView.swift */; };
 		490D91862ACF0DFF00495FB0 /* MoviesDiscoveryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490D91852ACF0DFF00495FB0 /* MoviesDiscoveryDelegate.swift */; };
@@ -96,7 +95,6 @@
 		490D91792ACAFF5600495FB0 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		490D917B2ACAFFE300495FB0 /* BundleIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleIdentifier.swift; sourceTree = "<group>"; };
 		490D917D2ACB0C8100495FB0 /* SegmentControlItemsProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlItemsProviding.swift; sourceTree = "<group>"; };
-		490D917F2ACC4CCD00495FB0 /* MoviesPaginationCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesPaginationCache.swift; sourceTree = "<group>"; };
 		490D91812ACC5C4400495FB0 /* PaginationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationManager.swift; sourceTree = "<group>"; };
 		490D91832ACEF8AD00495FB0 /* MoviesDiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDiscoveryView.swift; sourceTree = "<group>"; };
 		490D91852ACF0DFF00495FB0 /* MoviesDiscoveryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDiscoveryDelegate.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				490D91332AC8A01600495FB0 /* MovieResourceService.swift */,
 				490D91852ACF0DFF00495FB0 /* MoviesDiscoveryDelegate.swift */,
 				49378A1E2BDD27220045B9DE /* MoviesDiscoveryUIComposition.swift */,
-				490D917F2ACC4CCD00495FB0 /* MoviesPaginationCache.swift */,
 				490D91392AC8A89D00495FB0 /* MoviesUIComposition.swift */,
 				490D913D2AC8A9C400495FB0 /* Model */,
 				490D913B2AC8A9AA00495FB0 /* View */,
@@ -482,7 +479,6 @@
 				490D91382AC8A70300495FB0 /* MoviesPaginatedProviding.swift in Sources */,
 				490D91862ACF0DFF00495FB0 /* MoviesDiscoveryDelegate.swift in Sources */,
 				490D91722ACAFDE600495FB0 /* MoviesDiscoveryViewModel.swift in Sources */,
-				490D91802ACC4CCD00495FB0 /* MoviesPaginationCache.swift in Sources */,
 				490D91492AC8AE1500495FB0 /* ImageProviding.swift in Sources */,
 				4965D4AA2AC3542B006D2D37 /* MoviePosterComposition.swift in Sources */,
 				490D913F2AC8AAC200495FB0 /* ImageResourceService.swift in Sources */,
@@ -743,6 +739,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=driverkit*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -761,6 +759,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=driverkit*]" = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

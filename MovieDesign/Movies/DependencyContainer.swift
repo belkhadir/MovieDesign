@@ -7,18 +7,21 @@
 
 public struct DependencyContainer {
     public let movieService: MovieResourceService
-    public let movieCache: MoviesPaginationCaching
+    public let movieDiscovery: MovieDiscovery
+    public let paginationManager: PaginationManaging
     public let imageResourceService: (MovieProviding) -> ImageResourceService
     public let selectedMovie: (MovieProviding) -> Void
     
     public init(
         movieService: MovieResourceService,
-        movieCache: MoviesPaginationCaching,
+        movieDiscovery: MovieDiscovery,
+        paginationManager: PaginationManaging,
         imageResourceService: @escaping (MovieProviding) -> ImageResourceService,
         selectedMovieAction: @escaping (MovieProviding) -> Void
     ) {
         self.movieService = movieService
-        self.movieCache = movieCache
+        self.movieDiscovery = movieDiscovery
+        self.paginationManager = paginationManager
         self.imageResourceService = imageResourceService
         self.selectedMovie = selectedMovieAction
     }
