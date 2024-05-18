@@ -34,7 +34,7 @@ final class MoviesViewModel: ObservableObject  {
 // MARK: - MoviesDisplaying
 extension MoviesViewModel: MoviesDisplayable {
     func shouldDisplayOverlay() -> Bool {
-        loadingState != .loaded || moviesProvider.isEmpty
+        loadingState != .loading && moviesProvider.isEmpty
     }
     
     func fetchMovies() async {
