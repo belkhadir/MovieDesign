@@ -100,6 +100,7 @@ private extension MoviesViewModelTests {
             movieService: mockMovieService,
             movieDiscovery: .popular,
             paginationManager: mockManagerPagination,
+            genericErrorViewConfiguration: GenericErrorViewConfigurationMock(),
             imageResourceService: { imageResourceService($0) },
             selectedMovieAction: { selectedMovieAction($0) }
         )
