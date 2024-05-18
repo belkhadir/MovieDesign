@@ -11,10 +11,12 @@ public final class MoviesUIComposition {
     public static func construcView(dependencies: DependencyContainer) -> some View {
         
         let viewModel = MoviesViewModel(dependencies: dependencies)
+        let errorView = GenericErrorView(configuration: dependencies.genericErrorViewConfiguration)
         return MoviesView(
             viewModel: viewModel,
             imageResourceService: dependencies.imageResourceService,
-            selectedMovie: dependencies.selectedMovie
+            selectedMovie: dependencies.selectedMovie,
+            errorView: errorView
         )
     }
 }

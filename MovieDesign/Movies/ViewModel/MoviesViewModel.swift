@@ -11,6 +11,7 @@ protocol MoviesDisplayable {
     var moviesProvider: [MovieProviding] { get }
     var loadingState: LoadingState { get }
     
+    func shouldDisplayOverlay() -> Bool
     func fetchMovies() async
     func loadMoreMovies() async
 }
@@ -32,6 +33,10 @@ final class MoviesViewModel: ObservableObject  {
 
 // MARK: - MoviesDisplaying
 extension MoviesViewModel: MoviesDisplayable {
+    func shouldDisplayOverlay() -> Bool {
+        loadingState != .loaded || moviesProvider.isEmpty
+    }
+    
     func fetchMovies() async {
         guard loadingState != .loading else {
             return

@@ -7,19 +7,22 @@
 
 import SwiftUI
 
-struct MoviesView<ViewModel: MoviesDisplayable & ObservableObject>: View {
+struct MoviesView<ViewModel: MoviesDisplayable & ObservableObject, ErrorView: View>: View {
     @ObservedObject private var viewModel: ViewModel
     private let imageResourceService: (MovieProviding) -> ImageResourceService
     private let selectedMovie: (MovieProviding) -> Void
+    private let errorView: ErrorView
     
     init(
         viewModel: ViewModel,
         imageResourceService: @escaping (MovieProviding) -> ImageResourceService,
-        selectedMovie: @escaping (MovieProviding) -> Void
+        selectedMovie: @escaping (MovieProviding) -> Void,
+        errorView: ErrorView
     ) {
         self.viewModel = viewModel
         self.imageResourceService = imageResourceService
         self.selectedMovie = selectedMovie
+        self.errorView = errorView
     }
     
     var body: some View {
@@ -47,9 +50,14 @@ struct MoviesView<ViewModel: MoviesDisplayable & ObservableObject>: View {
                     }
             }
             .padding()
-            .task {
-                await viewModel.fetchMovies()
+
+        }.overlay(content: {
+            if viewModel.shouldDisplayOverlay() {
+                errorView
             }
+        })
+        .task {
+            await viewModel.fetchMovies()
         }
     }
 }
@@ -57,7 +65,7 @@ struct MoviesView<ViewModel: MoviesDisplayable & ObservableObject>: View {
 // MARK: - Helpers
 private extension MoviesView {
     @ViewBuilder
-    private func moviePoster(for movie: MovieProviding) -> some View {
+    func moviePoster(for movie: MovieProviding) -> some View {
         AnyView(MoviePosterUIComposition.constructView(
             movieProvider: movie,
             imageResourceService: imageResourceService(movie)
