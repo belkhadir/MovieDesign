@@ -9,7 +9,7 @@ public struct DependencyContainer {
     public let movieService: MovieResourceService
     public let movieDiscovery: MovieDiscovery
     public let paginationManager: PaginationManaging
-    public let genericErrorViewConfiguration: GenericErrorViewConfiguration
+    public let genericErrorViewConfiguration: GenericErrorViewConfigurable
     public let imageResourceService: (MovieProviding) -> ImageResourceService
     public let selectedMovie: (MovieProviding) -> Void
     
@@ -17,7 +17,7 @@ public struct DependencyContainer {
         movieService: MovieResourceService,
         movieDiscovery: MovieDiscovery,
         paginationManager: PaginationManaging,
-        genericErrorViewConfiguration: GenericErrorViewConfiguration,
+        genericErrorViewConfiguration: GenericErrorViewConfigurable,
         imageResourceService: @escaping (MovieProviding) -> ImageResourceService,
         selectedMovieAction: @escaping (MovieProviding) -> Void
     ) {

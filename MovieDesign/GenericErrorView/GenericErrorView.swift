@@ -9,9 +9,9 @@ import SwiftUI
 
 
 struct GenericErrorView: View {
-    private let configuration: GenericErrorViewConfiguration
+    private let configuration: GenericErrorViewConfigurable
     
-    init(configuration: GenericErrorViewConfiguration) {
+    init(configuration: GenericErrorViewConfigurable) {
         self.configuration = configuration
     }
     

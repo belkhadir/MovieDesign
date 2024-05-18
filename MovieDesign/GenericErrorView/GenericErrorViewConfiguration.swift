@@ -5,11 +5,11 @@
 //  Created by Belkhadir Anas on 18/5/2024.
 //
 
-public struct GenericErrorViewConfiguration {
-    let message: String
-    let primaryCTATitle: String
-    let primaryCTAImage: String
-    let primaryCTAAction: () -> Void
+public struct GenericErrorViewConfiguration: GenericErrorViewConfigurable {
+    public let message: String
+    public let primaryCTATitle: String
+    public let primaryCTAImage: String
+    public let primaryCTAAction: () -> Void
     
     public init(
         message: String,
