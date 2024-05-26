@@ -8,13 +8,33 @@
 import SwiftUI
 
 struct ImageView<ViewModel: ImageViewDisplayable & ObservableObject>: View {
+    @Environment(\.imageShape) var imageShape
     @ObservedObject private var viewModel: ViewModel
 
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
     }
+    
+    var body: some View {
+        Group {
+            switch viewModel.loadingState {
+            case .loading, .none:
+                ShimmerView()
+            case .loaded:
+                image
+            case .failed:
+                retryLoadImage
+            }
+        }
+        .task {
+            await viewModel.fetchImage()
+        }
+    }
+}
 
-    private var imageFromData: Image {
+// MARK: - Helpers
+private extension ImageView {
+    var imageFromData: Image {
         let fallBackImage = Image(systemName: "exclamationmark.icloud")
         if let data = viewModel.imageProvider?.data {
             return Image(data: data)
@@ -23,12 +43,9 @@ struct ImageView<ViewModel: ImageViewDisplayable & ObservableObject>: View {
         }
     }
 
-    var body: some View {
-        Group {
-            switch viewModel.loadingState {
-            case .loading, .none:
-                ShimmerView()
-            case .loaded:
+    var image: some View {
+        switch imageShape {
+            case .poster:
                 imageFromData
                     .resizable()
                     .frame(width: 150, height: 200)
@@ -36,21 +53,19 @@ struct ImageView<ViewModel: ImageViewDisplayable & ObservableObject>: View {
                     .clipped()
                     .cornerRadius(10)
                     .shadow(radius: 5)
-            case .failed:
-                VStack(spacing: 10) {
-                    Image(systemName: "xmark.octagon")
-                        .frame(width: 150, height: 200)
-                    Button("Retry") {
-                        Task {
-                            await viewModel.fetchImage()
-                        }
-                    }
-                    .buttonStyle(.bordered)
+        }
+    }
+    
+    var retryLoadImage: some View {
+        VStack(spacing: 10) {
+            Image(systemName: "xmark.octagon")
+                .frame(width: 150, height: 200)
+            Button("Retry") {
+                Task {
+                    await viewModel.fetchImage()
                 }
             }
-        }
-        .task {
-            await viewModel.fetchImage()
+            .buttonStyle(.bordered)
         }
     }
 }
