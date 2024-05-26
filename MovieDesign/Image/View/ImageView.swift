@@ -17,17 +17,7 @@ struct ImageView<ViewModel: ImageViewDisplayable & ObservableObject>: View {
     private var imageFromData: Image {
         let fallBackImage = Image(systemName: "exclamationmark.icloud")
         if let data = viewModel.imageProvider?.data {
-            #if os(iOS)
-            guard let uiImage = UIImage(data: data) else {
-                return fallBackImage
-            }
-            return Image(uiImage: uiImage)
-            #elseif os(macOS)
-            guard let nsImage = NSImage(data: data) else {
-                return fallBackImage
-            }
-            return Image(nsImage: nsImage)
-            #endif
+            return Image(data: data)
         } else {
             return fallBackImage
         }
