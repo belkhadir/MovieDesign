@@ -25,7 +25,7 @@ final class ImageViewModel<ResourceProvider: ImageResourceService>: ObservableOb
     }
 }
 
-// MARK: - MoviesDiplayable
+// MARK: - ImageViewDisplayable
 extension ImageViewModel: ImageViewDisplayable {
     func fetchImage() async {
         guard loadingState != .loading else { return }
