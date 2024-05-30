@@ -7,6 +7,22 @@
 
 import SwiftUI
 
-struct ImageShapeKey: EnvironmentKey {
-    static var defaultValue: ImageShape = .poster
+struct ImageStyleKey: EnvironmentKey {
+    static var defaultValue: ImageStyling = ImagePoster()
+}
+
+
+
+struct ImagePoster: ImageStyling {
+    var frame: CGSize {
+        .init(width: 150.0, height: 200.0)
+    }
+    
+    var cornerRadius: Double {
+        10.0
+    }
+    
+    var shadowRadius: Double {
+        5.0
+    }
 }

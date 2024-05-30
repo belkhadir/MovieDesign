@@ -14,7 +14,7 @@ public final class MoviePosterUIComposition {
     ) -> some View {
         let moviePosterViewModel = MoviePosterViewModel(movieProvider: movieProvider)
         let imageViewModel = ImageViewModel(service: imageResourceService)
-        let imageView = ImageView(viewModel: imageViewModel).imageShape(.poster)
+        let imageView = ImageView(viewModel: imageViewModel)
         return MoviePosterView(viewModel: moviePosterViewModel, imagePosterView: imageView)
     }
 }

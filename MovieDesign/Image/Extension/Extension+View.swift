@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension View {
-    func imageShape(_ imageShape: ImageShape) -> some View {
-        environment(\.imageShape, imageShape)
+    func imageStyle(_ style: ImageStyling) -> some View {
+        environment(\.imageStyle, style)
     }
 }

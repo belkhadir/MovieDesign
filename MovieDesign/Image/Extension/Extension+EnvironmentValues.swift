@@ -8,8 +8,8 @@
 import SwiftUI
 
 extension EnvironmentValues {
-    var imageShape: ImageShape {
-        get { self[ImageShapeKey.self] }
-        set { self[ImageShapeKey.self] = newValue }
+    var imageStyle: ImageStyling {
+        get { self[ImageStyleKey.self] }
+        set { self[ImageStyleKey.self] = newValue }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ImageView<ViewModel: ImageViewDisplayable & ObservableObject>: View {
-    @Environment(\.imageShape) var imageShape
+    @Environment(\.imageStyle) var imageStyle
     @ObservedObject private var viewModel: ViewModel
 
     init(viewModel: ViewModel) {
@@ -21,7 +21,7 @@ struct ImageView<ViewModel: ImageViewDisplayable & ObservableObject>: View {
             case .loading, .none:
                 ShimmerView()
             case .loaded:
-                image
+                imageFromData
             case .failed:
                 retryLoadImage
             }
@@ -44,16 +44,13 @@ private extension ImageView {
     }
 
     var image: some View {
-        switch imageShape {
-            case .poster:
-                imageFromData
-                    .resizable()
-                    .frame(width: 150, height: 200)
-                    .scaledToFit()
-                    .clipped()
-                    .cornerRadius(10)
-                    .shadow(radius: 5)
-        }
+        imageFromData
+            .resizable()
+            .frame(width: imageStyle.frame.width, height: imageStyle.frame.height)
+            .scaledToFit()
+            .clipped()
+            .cornerRadius(imageStyle.cornerRadius)
+            .shadow(radius: imageStyle.shadowRadius)
     }
     
     var retryLoadImage: some View {
