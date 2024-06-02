@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ImageResourceAPI
 
 public final class MoviesUIComposition {
     public static func construcView(dependencies: DependencyContainer) -> some View {

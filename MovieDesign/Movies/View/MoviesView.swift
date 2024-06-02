@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ImageResourceAPI
 
 struct MoviesView<ViewModel: MoviesDisplayable & ObservableObject, ErrorView: View>: View {
     @ObservedObject private var viewModel: ViewModel

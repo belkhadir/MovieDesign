@@ -5,6 +5,8 @@
 //  Created by Belkhadir Anas on 5/10/2023.
 //
 
+import ImageResourceAPI
+
 public struct DependencyContainer {
     public let movieService: MovieResourceService
     public let movieDiscovery: MovieDiscovery

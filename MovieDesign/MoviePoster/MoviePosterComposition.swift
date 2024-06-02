@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ImageResourceAPI
 
 public final class MoviePosterUIComposition {
     public static func constructView(
