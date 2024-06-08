@@ -21,13 +21,12 @@ final class MoviesViewModel: ObservableObject  {
     @Published private(set) var loadingState: LoadingState = .none
     
     private let service: MovieResourceService
-    private let movieDiscovery: MovieDiscovery
     private let paginationManager: PaginationManaging
     
-    init(dependencies: DependencyContainer) {
-        self.service = dependencies.movieService
-        self.movieDiscovery = dependencies.movieDiscovery
-        self.paginationManager = dependencies.paginationManager
+    
+    init(service: MovieResourceService, paginationManager: PaginationManaging) {
+        self.service = service
+        self.paginationManager = paginationManager
     }
 }
 
@@ -48,7 +47,6 @@ extension MoviesViewModel: MoviesDisplayable {
             await paginationManager.incrementPage()
             
             let resource = try await service.retrieveResource(
-                movieDiscovery: movieDiscovery,
                 page: paginationManager.currentPage()
             )
             await paginationManager.setTotalPages(resource.totalPages)

@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import MovieDesign
+import ImageResourceAPI
 
 final class ImageResourceServiceMock: ImageResourceService {
     var stubbedResult: Result<ImageProviding, Error>?

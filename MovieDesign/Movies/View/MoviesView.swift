@@ -8,20 +8,20 @@
 import SwiftUI
 import ImageResourceAPI
 
-struct MoviesView<ViewModel: MoviesDisplayable & ObservableObject, ErrorView: View>: View {
+struct MoviesView<ViewModel: MoviesDisplayable & ObservableObject, ServiceProvider: ImageResourceServiceProviding ,ErrorView: View>: View {
     @ObservedObject private var viewModel: ViewModel
-    private let imageResourceService: (MovieProviding) -> ImageResourceService
+    private let imageResourceServiceProvider: (MovieProviding) -> ServiceProvider
     private let selectedMovie: (MovieProviding) -> Void
     private let errorView: ErrorView
     
     init(
         viewModel: ViewModel,
-        imageResourceService: @escaping (MovieProviding) -> ImageResourceService,
+        imageResourceServiceProvider: @escaping (MovieProviding) -> ServiceProvider,
         selectedMovie: @escaping (MovieProviding) -> Void,
         errorView: ErrorView
     ) {
         self.viewModel = viewModel
-        self.imageResourceService = imageResourceService
+        self.imageResourceServiceProvider = imageResourceServiceProvider
         self.selectedMovie = selectedMovie
         self.errorView = errorView
     }
@@ -67,10 +67,10 @@ struct MoviesView<ViewModel: MoviesDisplayable & ObservableObject, ErrorView: Vi
 private extension MoviesView {
     @ViewBuilder
     func moviePoster(for movie: MovieProviding) -> some View {
-        AnyView(MoviePosterUIComposition.constructView(
+        MoviePosterUIComposition.constructView(
             movieProvider: movie,
-            imageResourceService: imageResourceService(movie)
-        ))
+            imageServiceProvider: imageResourceServiceProvider(movie)
+        )
         .aspectRatio(0.75, contentMode: .fit)
     }
 }

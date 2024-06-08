@@ -8,13 +8,13 @@
 public protocol MovieResourceService {
     typealias Result = Swift.Result<MoviesPaginatedProviding, Error>
     
-    func retrieveResource(movieDiscovery: MovieDiscovery, page: Int, completion: @escaping (Result) -> Void)
+    func retrieveResource(page: Int, completion: @escaping (Result) -> Void)
 }
 
 extension MovieResourceService {
-    func retrieveResource(movieDiscovery: MovieDiscovery, page: Int) async throws -> MoviesPaginatedProviding {
+    func retrieveResource(page: Int) async throws -> MoviesPaginatedProviding {
         return try await withCheckedThrowingContinuation { continuation in
-            retrieveResource(movieDiscovery: movieDiscovery, page: page) { result in
+            retrieveResource(page: page) { result in
                 switch result {
                 case .success(let movies):
                     continuation.resume(returning: movies)

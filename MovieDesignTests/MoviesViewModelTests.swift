@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import ImageResourceAPI
 @testable import MovieDesign
 
 final class MoviesViewModelTests: XCTestCase {
@@ -91,22 +92,18 @@ final class MoviesViewModelTests: XCTestCase {
 // MARK: - Helpers
 private extension MoviesViewModelTests {
     func makeSUT(
-        mockManagerPagination: PaginationManagerMock = PaginationManagerMock(),
-        imageResourceService: @escaping (MovieProviding) -> ImageResourceService = { _ in return ImageResourceServiceMock()},
-        selectedMovieAction: @escaping (MovieProviding) -> Void = { _ in }
+        mockManagerPagination: PaginationManagerMock = PaginationManagerMock()
     ) -> (sut: MoviesViewModel, service: MovieResourceServiceMock) {
         let mockMovieService = MovieResourceServiceMock()
-        let dependencies = DependencyContainer(
+        let dependencies = DependencyContainer<ImageResourceServiceProviderMock>(
             movieService: mockMovieService,
-            movieDiscovery: .popular,
             paginationManager: mockManagerPagination,
             genericErrorViewConfiguration: GenericErrorViewConfigurationMock(),
-            imageResourceService: { imageResourceService($0) },
-            selectedMovieAction: { selectedMovieAction($0) }
+            imageResourceServiceProvider: { _ in return ImageResourceServiceProviderMock()},
+            selectedMovieAction: { _ in }
         )
-        let sut = MoviesViewModel(dependencies: dependencies)
+        let sut = MoviesViewModel(service: dependencies.movieService, paginationManager: dependencies.paginationManager)
         trackForMemoryLeaks(mockMovieService)
-        trackForMemoryLeaks(mockManagerPagination)
         trackForMemoryLeaks(mockManagerPagination)
         trackForMemoryLeaks(sut)
         return (sut, mockMovieService)

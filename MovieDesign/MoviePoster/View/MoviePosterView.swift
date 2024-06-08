@@ -41,7 +41,7 @@ struct MoviePosterView<Content: View>: View {
 #if DEBUG
 #Preview {
     let viewModel = MoviePosterViewModel(movieProvider: Movie())
-    return MoviePosterView(viewModel: viewModel, imagePosterView: ShimmerView())
+    return MoviePosterView(viewModel: viewModel, imagePosterView: EmptyView())
 }
 
 private struct Movie: MovieProviding {

@@ -7,27 +7,24 @@
 
 import ImageResourceAPI
 
-public struct DependencyContainer {
+public struct DependencyContainer<Service: ImageResourceServiceProviding> {
     public let movieService: MovieResourceService
-    public let movieDiscovery: MovieDiscovery
     public let paginationManager: PaginationManaging
     public let genericErrorViewConfiguration: GenericErrorViewConfigurable
-    public let imageResourceService: (MovieProviding) -> ImageResourceService
+    public let imageResourceServiceProvider: (MovieProviding) -> Service
     public let selectedMovie: (MovieProviding) -> Void
     
     public init(
         movieService: MovieResourceService,
-        movieDiscovery: MovieDiscovery,
         paginationManager: PaginationManaging,
         genericErrorViewConfiguration: GenericErrorViewConfigurable,
-        imageResourceService: @escaping (MovieProviding) -> ImageResourceService,
+        imageResourceServiceProvider: @escaping (MovieProviding) -> Service,
         selectedMovieAction: @escaping (MovieProviding) -> Void
     ) {
         self.movieService = movieService
-        self.movieDiscovery = movieDiscovery
         self.paginationManager = paginationManager
         self.genericErrorViewConfiguration = genericErrorViewConfiguration
-        self.imageResourceService = imageResourceService
+        self.imageResourceServiceProvider = imageResourceServiceProvider
         self.selectedMovie = selectedMovieAction
     }
 }
