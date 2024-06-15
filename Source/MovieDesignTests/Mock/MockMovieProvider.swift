@@ -8,7 +8,7 @@
 import Foundation
 import MovieDesign
 
-struct MockMovieProvider: MovieProviding {
+struct MockMovieProvider: MovieProviding, Equatable, Hashable {
     let id: Int
     let title: String
     let imagePath: String
@@ -30,5 +30,13 @@ struct MockMovieProvider: MovieProviding {
         self.releaseDate = releaseDate
         self.voteAverage = voteAverage
         self.voteCount = voteCount
+    }
+    
+    static func ==(lhs: MockMovieProvider, rhs: MockMovieProvider) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }

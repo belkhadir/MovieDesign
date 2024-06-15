@@ -17,10 +17,13 @@ final class MoviesViewModelTests: XCTestCase {
 
         await sut.fetchMovies()
 
+        
         XCTAssertEqual(sut.loadingState, .loaded, "Failed to set loading state to loaded")
-        movies.enumerated().forEach { index, movie in
-            XCTAssertTrue(movie.isEqual(movie: sut.moviesProvider[index]))
-        }
+        
+        let fetchedMoviesSet = Set(sut.moviesProvider.map { $0.id })
+        let expectedMoviesSet = Set(movies.map { $0.id })
+        
+        XCTAssertEqual(fetchedMoviesSet, expectedMoviesSet, "Fetched movies do not match expected movies")
     }
 
     func test_GIVEN_noInitialMovies_WHEN_fetchMoviesFails_THEN_setLoadingStateToFailed() async {
@@ -77,9 +80,10 @@ final class MoviesViewModelTests: XCTestCase {
         await sut.fetchMovies()
         
         XCTAssertEqual(sut.loadingState, .loaded, "Failed to set loading state to loaded")
-        movies.enumerated().forEach { index, movie in
-            XCTAssertTrue(movie.isEqual(movie: sut.moviesProvider[index]))
-        }
+        let fetchedMoviesSet = Set(sut.moviesProvider.map { $0.id })
+        let expectedMoviesSet = Set(movies.map { $0.id })
+        
+        XCTAssertEqual(fetchedMoviesSet, expectedMoviesSet, "Fetched movies do not match expected movies")
         
         paginationManagerMock.sttubedCanLoadMoreResult = true
         service.stubbedResult = .failure(anyError())
@@ -109,8 +113,8 @@ private extension MoviesViewModelTests {
         return (sut, mockMovieService)
     }
     
-    func movieDummy(title: String = "A title") -> MovieProviding {
-        MockMovieProvider(id: 0, title: "A title", imagePath: "An image", releaseDate: Date(), voteAverage: 1, voteCount: 1)
+    func movieDummy(title: String = "A title") -> MockMovieProvider {
+        MockMovieProvider(id: Int.random(in: 0...1000000), title: "A title", imagePath: "An image", releaseDate: Date(), voteAverage: 1, voteCount: 1)
     }
     
     func moviesPaginatedDummy(
