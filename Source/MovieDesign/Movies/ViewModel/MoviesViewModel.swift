@@ -69,11 +69,23 @@ extension MoviesViewModel: MoviesDisplayable {
 private extension MoviesViewModel {
     @MainActor
     func appendMovies(_ movies: [MovieProviding]) {
-        moviesProvider += movies
+        let uniqueMovies = (moviesProvider + movies).unique()
+        moviesProvider = uniqueMovies
     }
 
     @MainActor
     func updateLoadingState(to state: LoadingState) {
         loadingState = state
+    }
+}
+
+// MARK: - Extension + [MovieProviding]
+private extension [MovieProviding] {
+    func unique() -> [Element] {
+        var seen = [Int: Element]()
+        for movie in self {
+            seen[movie.id] = movie
+        }
+        return Array(seen.values)
     }
 }
