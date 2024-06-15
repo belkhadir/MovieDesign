@@ -40,7 +40,11 @@ struct MoviePosterView<Content: View>: View {
 
 #if DEBUG
 #Preview {
-    let viewModel = MoviePosterViewModel(movieProvider: Movie())
+    let viewModel = MoviePosterViewModel(
+        movieProvider: Movie(),
+        dateFormatter: MoviePosterDateFormatter(),
+        voteFormatter: MoviePosterVoteFormatter()
+    )
     return MoviePosterView(viewModel: viewModel, imagePosterView: EmptyView())
 }
 

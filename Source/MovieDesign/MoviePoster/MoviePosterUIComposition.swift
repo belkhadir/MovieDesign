@@ -13,7 +13,11 @@ final class MoviePosterUIComposition<Service: ImageResourceServiceProviding> {
         movieProvider: MovieProviding,
         imageServiceProvider: Service
     ) -> some View {
-        let viewModel = MoviePosterViewModel(movieProvider: movieProvider)
+        let viewModel = MoviePosterViewModel(
+            movieProvider: movieProvider,
+            dateFormatter: MoviePosterDateFormatter(),
+            voteFormatter: MoviePosterVoteFormatter()
+        )
         let view = MoviePosterView(viewModel: viewModel, imagePosterView: imageServiceProvider.imageView())
         return view
     }

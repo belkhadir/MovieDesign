@@ -16,15 +16,17 @@ protocol MoviePosterDisplayable {
 
 final class MoviePosterViewModel {
     private let movieProvider: MovieProviding
+    private let dateFormatter: DateFormatting
+    private let voteFormatter: VoteFormatting
     
-    private let dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        return formatter
-    }()
-    
-    init(movieProvider: MovieProviding) {
+    init(
+        movieProvider: MovieProviding,
+        dateFormatter: DateFormatting,
+        voteFormatter: VoteFormatting
+    ) {
         self.movieProvider = movieProvider
+        self.dateFormatter = dateFormatter
+        self.voteFormatter = voteFormatter
     }
     
     var title: String {
@@ -32,7 +34,7 @@ final class MoviePosterViewModel {
     }
     
     var releaseDate: String {
-        dateFormatter.string(from: movieProvider.releaseDate)
+        dateFormatter.format(date: movieProvider.releaseDate)
     }
     
     var imageName: String {
@@ -40,7 +42,7 @@ final class MoviePosterViewModel {
     }
     
     var vote: String {
-        "\(String(format: "%.1f", movieProvider.voteAverage)) (\(movieProvider.voteCount) votes)"
+        voteFormatter.formatte(voteAverage: movieProvider.voteAverage, totalVote: movieProvider.voteCount)
     }
 }
 
