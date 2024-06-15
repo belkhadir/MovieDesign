@@ -8,9 +8,13 @@
 import Foundation
 
 struct MoviePosterDateFormatter: DateFormatting {
-    func format(date: Date) -> String {
+    private static let sharedFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
-        return formatter.string(from: date)
+        return formatter
+    }()
+    
+    func format(date: Date) -> String {
+        return Self.sharedFormatter.string(from: date)
     }
 }
