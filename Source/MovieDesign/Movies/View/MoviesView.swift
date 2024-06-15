@@ -38,7 +38,7 @@ struct MoviesView<ViewModel: MoviesDisplayable & ObservableObject, ServiceProvid
                             selectedMovie(movie)
                         }
                         .onAppear {
-                            if movie.id == viewModel.moviesProvider.last?.id {
+                            if movie.id == viewModel.moviesProvider.last?.id && viewModel.loadingState != .loading {
                                 Task {
                                     await viewModel.loadMoreMovies()
                                 }
