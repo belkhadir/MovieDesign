@@ -35,6 +35,7 @@ jobs:
       
     - name: Build dependencies for macOS
       run: carthage bootstrap --use-xcframeworks --platform macOS --cache-builds
-            
-    - name: Build and Test(macOS)
-      run: xcodebuild test -project Source/MovieDesign.xcodeproj -scheme "MovieDesign" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 14,OS=16.4" ONLY_ACTIVE_ARCH=YES SWIFT_TREAT_WARNINGS_AS_ERRORS=YES OTHER_SWIFT_FLAGS="-D ED_SKIP_SWIFT_FORMAT"
+      
+    - name: Build and Test (macOS)
+      run: xcodebuild test -project Source/MovieDesign.xcodeproj -scheme "MovieDesign" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk macosx -destination "platform=macOS" ONLY_ACTIVE_ARCH=YES SWIFT_TREAT_WARNINGS_AS_ERRORS=YES OTHER_SWIFT_FLAGS="-D ED_SKIP_SWIFT_FORMAT"
+

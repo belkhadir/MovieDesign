@@ -11,7 +11,7 @@ public actor PaginationManager {
     
     public init(currentPage: Int = 1, totalPages: Int = 1) {
         self._currentPage = currentPage
-        self._totalPages = totalPages
+        self._totalPages = max(totalPages, 1)
     }
 }
 
@@ -26,7 +26,7 @@ extension PaginationManager: PaginationManaging {
     }
     
     public func canLoadMore() async -> Bool {
-        return _currentPage <= _totalPages
+        return _currentPage < _totalPages
     }
 
     public func incrementPage() async {

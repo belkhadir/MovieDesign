@@ -36,6 +36,11 @@ extension MoviesViewModel: MoviesDisplayable {
         loadingState != .loading && moviesProvider.isEmpty
     }
     
+    func loadMoreMovies() async {
+        guard await paginationManager.canLoadMore() else { return }
+        await fetchMovies()
+    }
+    
     func fetchMovies() async {
         guard loadingState != .loading else {
             return
@@ -57,11 +62,6 @@ extension MoviesViewModel: MoviesDisplayable {
             print("Failed to fetch movies: \(error)")
         }
     }
-    
-    func loadMoreMovies() async {
-        guard await paginationManager.canLoadMore() else { return }
-        await fetchMovies()
-    }
 }
 
 
@@ -69,23 +69,11 @@ extension MoviesViewModel: MoviesDisplayable {
 private extension MoviesViewModel {
     @MainActor
     func appendMovies(_ movies: [MovieProviding]) {
-        let uniqueMovies = (moviesProvider + movies).unique()
-        moviesProvider = uniqueMovies
+        moviesProvider += movies
     }
 
     @MainActor
     func updateLoadingState(to state: LoadingState) {
         loadingState = state
-    }
-}
-
-// MARK: - Extension + [MovieProviding]
-private extension [MovieProviding] {
-    func unique() -> [Element] {
-        var seen = [Int: Element]()
-        for movie in self {
-            seen[movie.id] = movie
-        }
-        return Array(seen.values)
     }
 }
