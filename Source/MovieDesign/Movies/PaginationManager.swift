@@ -11,7 +11,7 @@ public actor PaginationManager {
     
     public init(currentPage: Int = 1, totalPages: Int = 1) {
         self._currentPage = currentPage
-        self._totalPages = totalPages
+        self._totalPages = max(totalPages, 1)
     }
 }
 

@@ -36,6 +36,11 @@ extension MoviesViewModel: MoviesDisplayable {
         loadingState != .loading && moviesProvider.isEmpty
     }
     
+    func loadMoreMovies() async {
+        guard await paginationManager.canLoadMore() else { return }
+        await fetchMovies()
+    }
+    
     func fetchMovies() async {
         guard loadingState != .loading else {
             return
@@ -56,11 +61,6 @@ extension MoviesViewModel: MoviesDisplayable {
             await updateLoadingState(to: .failed)
             print("Failed to fetch movies: \(error)")
         }
-    }
-    
-    func loadMoreMovies() async {
-        guard await paginationManager.canLoadMore() else { return }
-        await fetchMovies()
     }
 }
 

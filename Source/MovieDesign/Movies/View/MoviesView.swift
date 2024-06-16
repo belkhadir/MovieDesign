@@ -37,18 +37,19 @@ struct MoviesView<ViewModel: MoviesDisplayable & ObservableObject, ServiceProvid
                         .onTapGesture {
                             selectedMovie(movie)
                         }
-                        .onAppear {
-                            if movie.id == viewModel.moviesProvider.last?.id && viewModel.loadingState != .loading {
-                                Task {
-                                    await viewModel.loadMoreMovies()
-                                }
-                            }
-                        }
                     }
                     if viewModel.loadingState == .loading {
                         ProgressView()
                             .frame(height: 50)
                     }
+                    
+                    Color.clear
+                        .frame(height: 1)
+                        .onAppear {
+                            Task {
+                                await viewModel.loadMoreMovies()
+                            }
+                        }
             }
             .padding()
 
