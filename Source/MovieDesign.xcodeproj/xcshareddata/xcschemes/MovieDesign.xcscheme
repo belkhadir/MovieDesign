@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1430"
+   LastUpgradeVersion = "1530"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "49C8F2A02ABB364A00680ABB"
-               BuildableName = "MovieiOS.framework"
-               BlueprintName = "MovieiOS"
-               ReferencedContainer = "container:MovieiOS.xcodeproj">
+               BuildableName = "MovieDesign.framework"
+               BlueprintName = "MovieDesign"
+               ReferencedContainer = "container:MovieDesign.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,23 +29,10 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:MovieiOS.xctestplan"
+            reference = "container:MovieDesignTests/MovieDesign.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "49C8F2A82ABB364A00680ABB"
-               BuildableName = "MovieiOSTests.xctest"
-               BlueprintName = "MovieiOSTests"
-               ReferencedContainer = "container:MovieiOS.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -68,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "49C8F2A02ABB364A00680ABB"
-            BuildableName = "MovieiOS.framework"
-            BlueprintName = "MovieiOS"
-            ReferencedContainer = "container:MovieiOS.xcodeproj">
+            BuildableName = "MovieDesign.framework"
+            BlueprintName = "MovieDesign"
+            ReferencedContainer = "container:MovieDesign.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
