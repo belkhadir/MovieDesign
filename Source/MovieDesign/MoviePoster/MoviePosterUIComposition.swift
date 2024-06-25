@@ -8,8 +8,8 @@
 import ImageResourceAPI
 import SwiftUI
 
-final class MoviePosterUIComposition<Service: ImageResourceServiceProviding> {
-    static func constructView(
+final public class MoviePosterUIComposition<Service: ImageResourceServiceProviding> {
+    static public func constructView(
         movieProvider: MovieProviding,
         imageServiceProvider: Service
     ) -> some View {
