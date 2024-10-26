@@ -55,7 +55,7 @@ extension PaginatedItemsViewModel: PaginatedItemsDisplayable {
             await updateLoadingState(to: .loaded)
         } catch {
             await updateLoadingState(to: .failed)
-            print("Failed to fetch movies: \(error)")
+            print("Failed to fetch items: \(error)")
         }
     }
     

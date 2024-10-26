@@ -6,7 +6,7 @@
 //
 
 public protocol ItemsPaginatedProviding {
-    associatedtype Item
+    associatedtype Item: Identifiable
     var items: [Item] { get }
     
     var page: Int { get }
